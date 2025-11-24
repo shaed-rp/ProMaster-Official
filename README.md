@@ -298,10 +298,9 @@ See [`docs/MOBILE_RESPONSIVENESS.md`](./docs/MOBILE_RESPONSIVENESS.md) for compl
 - [`docs/MOBILE_RESPONSIVENESS.md`](./docs/MOBILE_RESPONSIVENESS.md) - Mobile responsiveness guide and best practices
 
 ### SEO Documentation
-- [`SEO_DOCUMENTATION_INDEX.md`](./SEO_DOCUMENTATION_INDEX.md) - Complete SEO documentation index
 - [`COMPLETE_SEO_ENHANCEMENTS_FINAL.md`](./COMPLETE_SEO_ENHANCEMENTS_FINAL.md) - Complete SEO enhancements summary ⭐ PRIMARY
-- [`SEO_AI_SEARCH_REVIEW.md`](./SEO_AI_SEARCH_REVIEW.md) - AI search engine optimization guide
-- [`TOP_SECTION_SEO_REVIEW.md`](./TOP_SECTION_SEO_REVIEW.md) - Header/navbar/hero section review
+- [`docs/seo/SEO_DOCUMENTATION_INDEX.md`](./docs/seo/SEO_DOCUMENTATION_INDEX.md) - Complete SEO documentation index
+- [`docs/seo/`](./docs/seo/) - Detailed SEO documentation (AI search, components, JSON, advanced features)
 - [`docs/archive/`](./docs/archive/) - Historical SEO documentation
 
 ## 📄 License

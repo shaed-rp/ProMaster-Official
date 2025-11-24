@@ -168,6 +168,15 @@ Historical documentation files have been moved to [`docs/archive/`](./docs/archi
 - [Contributing Guidelines](./CONTRIBUTING.md) ⭐ NEW
 - [Troubleshooting Guide](./docs/TROUBLESHOOTING.md) ⭐ NEW
 
+### SEO Documentation
+- [Complete SEO Enhancements](./COMPLETE_SEO_ENHANCEMENTS_FINAL.md) ⭐ PRIMARY - Complete SEO summary
+- [SEO Documentation Index](./docs/seo/SEO_DOCUMENTATION_INDEX.md) - Complete SEO documentation index
+- [AI Search Optimization](./docs/seo/SEO_AI_SEARCH_REVIEW.md) - AI search engine guide
+- [Component SEO](./docs/seo/COMPONENT_SEO_ENHANCEMENTS.md) - Component-level improvements
+- [Advanced SEO](./docs/seo/ADVANCED_SEO_ENHANCEMENTS.md) - Advanced features
+- [JSON SEO](./docs/seo/JSON_SEO_OPTIMIZATION_SUMMARY.md) - JSON data optimizations
+- [Top Section SEO](./docs/seo/TOP_SECTION_SEO_REVIEW.md) - Header/navbar/hero review
+
 ### Deployment
 - [Vercel Deployment Guide](./VERCEL_DEPLOYMENT.md) - Complete deployment guide with checklist
 - [Deployment Checklist](./VERCEL_DEPLOYMENT.md#pre-deployment-checklist) - Pre-deployment verification
