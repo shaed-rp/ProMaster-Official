@@ -48,9 +48,20 @@
     opacity 0.5s ease,
     transform 0.5s ease;
 
+  // Reduced motion support
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+
   &.visible {
     opacity: 1;
     transform: translateY(0);
+
+    @media (prefers-reduced-motion: reduce) {
+      transform: none;
+    }
   }
 }
 
@@ -167,8 +178,8 @@
   }
 
   .title {
-    font-size: 4vh;
-    line-height: 2rem;
+    font-size: clamp(2rem, 4vw, 4vh);
+    line-height: 1.2;
     margin-bottom: 32px;
   }
 
@@ -223,8 +234,14 @@
 }
 
 @media (max-width: 768px) {
+  .specs {
+    // Safe area insets for notched devices
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
   .specsContainer {
-    padding: 0 15px;
+    padding: 0 max(15px, env(safe-area-inset-left)) 0 max(15px, env(safe-area-inset-right));
   }
 
   .title {

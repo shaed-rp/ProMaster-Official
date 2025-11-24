@@ -105,9 +105,9 @@ export default function Specs({ specPoints }: SpecsProps) {
   };
 
   return (
-    <section className={styles.specs} aria-labelledby='specs-section-title'>
+    <section className={styles.specs} aria-labelledby='specs-section-title' itemScope itemType='https://schema.org/Product'>
       <div className={styles.specsContainer}>
-        <h2 id='specs-section-title' className={styles.title}>Specs</h2>
+        <h2 id='specs-section-title' className={styles.title}>RAM ProMaster EV Specifications</h2>
         <div className={styles.specGrid}>
           <div className={styles.leftColumn}>
             {renderPricingPowertrain(specPoints[0])}

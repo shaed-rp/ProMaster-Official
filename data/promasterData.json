@@ -1,7 +1,7 @@
 {
   "siteConfig": {
-    "title": "RAM EV",
-    "description": "Official website for the all new RAM ProMaster EV",
+    "title": "2024 RAM ProMaster EV | Commercial Electric Van",
+    "description": "Discover the 2024 RAM ProMaster EV commercial electric van. Zero emissions, 162-mile range, 3,020 lb payload, 520 cubic feet cargo space. Features 110 kWh battery, 268 HP, 302 lb-ft torque. Starting at $77,995. Eligible for tax credits.",
     "url": "https://commercialevs.com",
     "faviconUrl": "/assets/promaster/favicon.ico",
     "ogImage": "/assets/promaster/promasterEV.webp",
@@ -35,51 +35,51 @@
     "specs": [
       {
         "imageUrl": "/assets/promaster/boxes.webp",
-        "description": "Maximize Capacity with a 3,020 lb Payload"
+        "description": "Maximize Capacity with a 3,020 lb Payload - RAM ProMaster EV Commercial Electric Van"
       },
       {
-        "description": "Drive Clean with Zero Tailpipe Emissions"
+        "description": "Drive Clean with Zero Tailpipe Emissions - 2024 RAM ProMaster EV Commercial Electric Van"
       },
       {
-        "description": "Premium Interior for Driver Comfort",
+        "description": "Premium Interior for Driver Comfort - RAM ProMaster EV Commercial Electric Van Features",
         "imageUrl": "/assets/promaster/interior.jpg"
       },
       {
-        "description": "Long-lasting 110 kWh Battery with up to 162 Miles of Range",
+        "description": "Long-lasting 110 kWh Battery with up to 162 Miles of Range - RAM ProMaster EV Electric Van",
         "imageUrl": "/assets/promaster/batteryIcon.webp"
       },
       {
         "imageUrl": "/assets/promaster/dashImage.jpg",
-        "description": "Cutting-Edge Technology for Smarter Driving"
+        "description": "Cutting-Edge Technology for Smarter Driving - RAM ProMaster EV Commercial Electric Van"
       },
       {
         "title": "268 HP",
-        "description": "Electric Motor"
+        "description": "268 HP Electric Motor - RAM ProMaster EV Powertrain"
       },
       {
-        "title": "",
-        "description": "Versatile Charging with 3 Options"
+        "title": "Charging Options",
+        "description": "Versatile Charging with 3 Options - Level 1, Level 2, and Level 3 DC Fast Charging for RAM ProMaster EV"
       },
       {
-        "title": "",
-        "description": "Eligible for Tax Deductions"
+        "title": "Tax Benefits",
+        "description": "Eligible for Tax Deductions - Section 168(k) Tax Deduction for RAM ProMaster EV Commercial Electric Van"
       },
       {
-        "description": "Seamless Charging with a Smart Port",
+        "description": "Seamless Charging with a Smart Port - RAM ProMaster EV Quick-Release Weatherproof Charging",
         "imageUrl": "/assets/promaster/fuelCharge.png"
       },
       {
         "imageUrl": "/assets/promaster/sideVanShot.png",
-        "description": "Redesigned Side Pocket Door for Easy Access"
+        "description": "Redesigned Side Pocket Door for Easy Access - RAM ProMaster EV Commercial Electric Van Design"
       }
     ]
   },
   "capabilities": {
-    "title": "More Capabal Than Ever",
+    "title": "More Capable Than Ever",
     "navLinkText": "Capability",
     "specs": [
       {
-        "label": "Get to work",
+        "label": "Commercial Electric Van Ready for Work",
         "imageUrl": "/assets/promaster/vanSkeleton.png"
       },
       {
@@ -91,11 +91,11 @@
         "value": "110 kwh"
       },
       {
-        "label": "And keep it going",
+        "label": "110 kWh Battery Power for Extended Range",
         "imageUrl": "/assets/promaster/batterySkeleton.png"
       },
       {
-        "label": "With lasting confidence",
+        "label": "8-Year Battery Warranty for Peace of Mind",
         "imageUrl": "/assets/promaster/warrantyBadge.png"
       },
       {
@@ -112,12 +112,12 @@
       {
         "imageUrl": "/assets/promaster/chargerWithPromaster.webp",
         "title": "Charger Options",
-        "description": "Charging the Ram ProMaster® EV is easy with the available Level 2 charger. It can charge a battery overnight so it’s ready for work the next day. And recharge the van while on a lunch break with the Level 3 charger, which can charge the van in under an hour. A Level 1 charger also comes standard."
+        "description": "Charging the RAM ProMaster EV commercial electric van is easy with the available Level 2 charger. It can charge the 110 kWh battery overnight so it's ready for work the next day. And recharge the van while on a lunch break with the Level 3 DC fast charger, which can charge the van in under an hour. A Level 1 charger also comes standard with the RAM ProMaster EV."
       },
       {
         "imageUrl": "/assets/promaster/fuelCharge.png",
         "title": "Smart Charging Port",
-        "description": "Whether you’re indoors or outdoors, charge up via an available and easy-to-use quick-release mount with a lockable, weatherproof enclosure."
+        "description": "Whether you're indoors or outdoors, charge up the RAM ProMaster EV via an available and easy-to-use quick-release mount with a lockable, weatherproof enclosure. The smart charging port is designed for both commercial and residential charging locations."
       }
     ]
   },
@@ -128,22 +128,22 @@
       {
         "imageUrl": "/assets/promaster/infotainment.webp",
         "title": "Infotainment System",
-        "description": "Enhance every drive with the Uconnect® 5 system, featuring a 10-inch touchscreen that delivers lightning-fast responsiveness and customizable settings—keeping drivers connected, informed, and in control."
+        "description": "Enhance every drive with the Uconnect 5 infotainment system in the RAM ProMaster EV, featuring a 10-inch touchscreen that delivers lightning-fast responsiveness and customizable settings—keeping drivers connected, informed, and in control of their commercial electric van."
       },
       {
         "imageUrl": "/assets/promaster/dash.webp",
         "title": "Driver Information Digital Cluster",
-        "description": "Stay informed on the road with the high-tech Driver Information Digital Cluster, featuring a vibrant 7-inch color display that delivers essential driving details—ensuring a smarter, more efficient driving experience."
+        "description": "Stay informed on the road with the high-tech Driver Information Digital Cluster in the RAM ProMaster EV, featuring a vibrant 7-inch color display that delivers essential driving details—ensuring a smarter, more efficient driving experience for commercial van operators."
       },
       {
         "imageUrl": "/assets/promaster/chargerWithPromaster.webp",
         "title": "Charging Identification Lights",
-        "description": "Easily monitor your van’s charging status with five dashboard indicator lights, designed to provide real-time updates. This smart solution keeps you informed and ready to stay productive, even on the busiest worksites."
+        "description": "Easily monitor your RAM ProMaster EV's charging status with five dashboard indicator lights, designed to provide real-time updates. This smart solution keeps commercial van operators informed and ready to stay productive, even on the busiest worksites."
       },
       {
         "imageUrl": "/assets/promaster/dash.webp",
         "title": "Power Status",
-        "description": "Stay in control with real-time charging updates right from the cabin. In addition to the digital dashboard gauge, the Uconnect® touchscreen displays charge status, level, and time to completion—along with essential insights like range, nearby charging locations, and more."
+        "description": "Stay in control with real-time charging updates right from the cabin of the RAM ProMaster EV. In addition to the digital dashboard gauge, the Uconnect 5 touchscreen displays charge status, level, and time to completion—along with essential insights like range, nearby charging locations, and more for your commercial electric van."
       }
     ]
   },
@@ -153,23 +153,23 @@
     "images": [
       {
         "imageUrl": "/assets/promaster/fullSidePromaster.webp",
-        "alt": "design1"
+        "alt": "2024 RAM ProMaster EV full side view - Commercial electric van exterior design"
       },
       {
         "imageUrl": "/assets/promaster/interior.jpg",
-        "alt": "design2"
+        "alt": "RAM ProMaster EV premium interior cabin with driver comfort features and commercial van design"
       },
       {
         "imageUrl": "/assets/promaster/rearPromasterEV.webp",
-        "alt": "design3"
+        "alt": "2024 RAM ProMaster EV rear view showing cargo doors and commercial electric van design"
       },
       {
         "imageUrl": "/assets/promaster/rearInsidePromasterEV.webp",
-        "alt": "design4"
+        "alt": "RAM ProMaster EV rear cargo area interior with 520 cubic feet storage space"
       },
       {
         "imageUrl": "/assets/promaster/frontPromasterEV.webp",
-        "alt": "design5"
+        "alt": "2024 RAM ProMaster EV front view - Commercial electric van front grille and design"
       }
     ]
   },
@@ -179,17 +179,17 @@
     "businessPoints": [
       {
         "imageUrl": "/assets/promaster/parkedPromaster.webp",
-        "alt": "Rear ProMaster Image",
+        "alt": "2024 RAM ProMaster EV rear view parked - Commercial electric van with zero emissions",
         "title": "Tax Benefits",
-        "description": "Driving an All-New Ram ProMaster® EV can come with tax benefits like the Section 168(k) Tax Deduction that can help boost your bottom line. Dive into the link below to discover how making the switch can be cost-effective for you and your business. Create an account on CommercialEVs.com to see grants and incentives in your area!",
+        "description": "Driving the 2024 RAM ProMaster EV commercial electric van can come with tax benefits like the Section 168(k) Tax Deduction that can help boost your bottom line. Discover how making the switch to electric can be cost-effective for you and your business. Create an account on CommercialEVs.com to see grants and incentives available in your area for commercial electric vehicles!",
         "buttonText": "Learn More",
         "buttonLinkUrl": "https://www.commercialevs.com/products/2024-ram-3500-promaster-ev-upfitted/100218"
       },
       {
         "imageUrl": "/assets/promaster/parkedPromasterSide.webp",
-        "alt": "Side ProMaster Image",
+        "alt": "2024 RAM ProMaster EV side view parked - Commercial electric van profile with walk-in pocket door",
         "title": "Big Business Benefits",
-        "description": "With great business-focused features and benefits like expedited service, shuttles and loaner vehicles, included with the BusinessLink Program, owners can help streamline their businesses as preferred commercial customers.",
+        "description": "The RAM ProMaster EV includes great business-focused features and benefits like expedited service, shuttles and loaner vehicles, included with the BusinessLink Program. RAM ProMaster EV owners can help streamline their businesses as preferred commercial customers with dedicated support for fleet operations.",
         "buttonText": "Explore BusinessLink",
         "buttonLinkUrl": "https://www.ramtrucks.com/ram-professional/businesslink.html"
       }
@@ -307,7 +307,7 @@
     "buildSections": [
       {
         "vehicleImageUrl": "/assets/promaster/stockImagePromaster.webp",
-        "alt": "design1",
+        "alt": "2024 RAM ProMaster EV commercial electric van - Customize and build your commercial EV",
         "process": [
           {
             "Step 1": "Customize",

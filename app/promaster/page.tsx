@@ -25,14 +25,29 @@ export const metadata: Metadata = {
     'ProMaster EV powertrain',
     'ProMaster EV warranty',
     'ProMaster EV tax credits',
+    'RAM ProMaster EV complete guide',
+    'RAM ProMaster EV review',
+    'RAM ProMaster EV vs Ford E-Transit',
+    'RAM ProMaster EV vs Mercedes eSprinter',
+    'best commercial electric van 2024',
+    'RAM ProMaster EV charging time',
+    'RAM ProMaster EV battery life',
+    'RAM ProMaster EV for fleet',
+    'commercial electric van comparison',
+    'RAM ProMaster EV dimensions',
+    'RAM ProMaster EV towing capacity',
+    'RAM ProMaster EV interior space',
+    'how much does RAM ProMaster EV cost',
+    'RAM ProMaster EV tax deduction',
+    'commercial EV incentives 2024',
   ],
   alternates: {
     canonical: `${baseUrl}/promaster`,
   },
   openGraph: {
-    title: 'RAM ProMaster EV | Specifications & Features',
+    title: 'RAM ProMaster EV | Specifications & Features | CommercialEVs.com',
     description:
-      'Explore the 2024 RAM ProMaster EV specifications, features, and capabilities. 110 kWh battery, 162-mile range, 3,020 lb payload.',
+      'Explore the 2024 RAM ProMaster EV specifications, features, and capabilities. 110 kWh battery, 162-mile range, 3,020 lb payload, 520 cubic feet cargo space. Zero emissions commercial electric van starting at $77,995.',
     url: `${baseUrl}/promaster`,
     siteName: 'CommercialEVs.com',
     images: [
@@ -47,9 +62,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'RAM ProMaster EV | Specifications & Features',
+    title: 'RAM ProMaster EV | Specifications & Features | CommercialEVs.com',
     description:
-      'Explore the 2024 RAM ProMaster EV specifications, features, and capabilities.',
+      'Explore the 2024 RAM ProMaster EV specifications, features, and capabilities. 110 kWh battery, 162-mile range, 3,020 lb payload, 520 cubic feet cargo space.',
     images: ['/assets/promaster/promasterEV.webp'],
   },
 };

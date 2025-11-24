@@ -15,8 +15,8 @@ const Gallery = ({ images, title = 'Vehicle Gallery' }: GalleryProps) => {
   const displayImages = images.slice(0, 7);
 
   return (
-    <section className={styles.gallery} aria-labelledby='gallery-section-title'>
-      <h2 id='gallery-section-title' className={styles.title}>{title}</h2>
+    <section className={styles.gallery} aria-labelledby='gallery-section-title' itemScope itemType='https://schema.org/ImageGallery'>
+      <h2 id='gallery-section-title' className={styles.title}>{title || 'RAM ProMaster EV Gallery'}</h2>
       <div className={styles.staggeredGrid}>
         <div className={`${styles.imageWrapper} ${styles.tall}`}>
           <Image

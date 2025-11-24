@@ -44,6 +44,8 @@ const ContactSalesButton = ({
         ...buttonStyles,
       }}
       onClick={handleButtonClick}
+      aria-label={`${buttonText} - Request information about RAM ProMaster EV`}
+      title={`${buttonText} - Get pricing and information about RAM ProMaster EV`}
     >
       {buttonText}
     </button>

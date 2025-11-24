@@ -42,6 +42,10 @@ const Overview = ({ overview }: OverviewProps) => {
   useEffect(() => {
     setAnimatedItems(new Array(cardSizes.length).fill(false));
 
+    // Optimize threshold for mobile devices (lower threshold = faster trigger)
+    const isMobile = window.innerWidth < 768;
+    const threshold = isMobile ? 0.05 : 0.1;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -60,7 +64,11 @@ const Overview = ({ overview }: OverviewProps) => {
           }
         });
       },
-      { threshold: 0.1 }
+      { 
+        threshold,
+        // Add root margin for better mobile performance
+        rootMargin: isMobile ? '50px' : '100px'
+      }
     );
 
     pointsRef.current.forEach((point) => {
@@ -71,9 +79,9 @@ const Overview = ({ overview }: OverviewProps) => {
   }, [cardSizes.length]);
 
   return (
-    <section className={styles.overview} aria-labelledby='overview-section-title'>
+    <section className={styles.overview} aria-labelledby='overview-section-title' itemScope itemType='https://schema.org/Product'>
       <div className={styles.overviewContainer}>
-        <h2 id='overview-section-title' className={styles.title}>Overview</h2>
+        <h2 id='overview-section-title' className={styles.title}>RAM ProMaster EV Overview</h2>
         <div className={styles.pointsContainer}>
           {cardSizes.map((size, index) => (
             <div
@@ -104,9 +112,9 @@ const Overview = ({ overview }: OverviewProps) => {
                           <Image
                             src={overview.specs[index].imageUrl}
                             alt={
-                              overview.specs[index].title ||
-                              overview.specs[index].description ||
-                              'RAM ProMaster EV feature'
+                              overview.specs[index].title
+                                ? `RAM ProMaster EV ${overview.specs[index].title} - ${overview.specs[index].description || 'Commercial Electric Van Feature'}`
+                                : overview.specs[index].description || '2024 RAM ProMaster EV Commercial Electric Van Feature'
                             }
                             fill
                             style={{ objectFit: 'cover' }}
@@ -124,9 +132,9 @@ const Overview = ({ overview }: OverviewProps) => {
                           <Image
                             src={overview.specs[index].imageUrl}
                             alt={
-                              overview.specs[index].title ||
-                              overview.specs[index].description ||
-                              'RAM ProMaster EV feature'
+                              overview.specs[index].title
+                                ? `RAM ProMaster EV ${overview.specs[index].title} - ${overview.specs[index].description || 'Commercial Electric Van Feature'}`
+                                : overview.specs[index].description || '2024 RAM ProMaster EV Commercial Electric Van Feature'
                             }
                             fill
                             style={{ objectFit: 'cover' }}
@@ -186,9 +194,9 @@ const Overview = ({ overview }: OverviewProps) => {
                           <Image
                             src={overview.specs[index].imageUrl}
                             alt={
-                              overview.specs[index].title ||
-                              overview.specs[index].description ||
-                              'RAM ProMaster EV feature'
+                              overview.specs[index].title
+                                ? `RAM ProMaster EV ${overview.specs[index].title} - ${overview.specs[index].description || 'Commercial Electric Van Feature'}`
+                                : overview.specs[index].description || '2024 RAM ProMaster EV Commercial Electric Van Feature'
                             }
                             width={size === 'large' ? 200 : 200}
                             height={size === 'large' ? 200 : 100}

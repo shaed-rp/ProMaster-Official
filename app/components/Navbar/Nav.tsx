@@ -159,10 +159,10 @@ const Navbar = ({ vehicleId, openModal, sectionTitles }: NavbarProps) => {
     >
       <div className={styles.navContainer}>
         <div className={styles.logo}>
-          <a href='#home' onClick={(event) => handleLinkClick(event, 'home')}>
+          <a href='#home' onClick={(event) => handleLinkClick(event, 'home')} aria-label='Navigate to home section - RAM ProMaster EV'>
             <Image
               src={config.siteConfig.logoUrl}
-              alt={`${config.siteConfig.brandName} logo`}
+              alt={`${config.siteConfig.brandName} - RAM ProMaster EV Commercial Electric Van`}
               width={isPromaster ? 450 : 200}
               height={isPromaster ? 60 : 50}
               className={`${styles.logoOne} ${
@@ -175,7 +175,7 @@ const Navbar = ({ vehicleId, openModal, sectionTitles }: NavbarProps) => {
                 <span style={{ paddingLeft: '20px' }} />
                 <Image
                   src={config.siteConfig.logoUrlTwo}
-                  alt={`${config.siteConfig.brandName} logo`}
+                  alt={`Authorized RAM ProMaster EV Dealer - ${config.siteConfig.brandName}`}
                   width={150}
                   height={50}
                   className={styles.logoTwo}
@@ -233,6 +233,8 @@ const Navbar = ({ vehicleId, openModal, sectionTitles }: NavbarProps) => {
                       className={styles.requestInfoButton}
                       style={{ backgroundColor: config.siteConfig.brandColor }}
                       id={`contact-button-nav-${vehicleId}`}
+                      aria-label={`${displayTitle} - Request information about RAM ProMaster EV`}
+                      title={`${displayTitle} - Get pricing and information about RAM ProMaster EV`}
                     >
                       {displayTitle}
                     </a>
@@ -243,6 +245,8 @@ const Navbar = ({ vehicleId, openModal, sectionTitles }: NavbarProps) => {
                       className={
                         selectedSection === section.id ? styles.active : ''
                       }
+                      aria-label={`Navigate to ${displayTitle} section`}
+                      title={`View ${displayTitle} - RAM ProMaster EV`}
                     >
                       {displayTitle}
                     </a>

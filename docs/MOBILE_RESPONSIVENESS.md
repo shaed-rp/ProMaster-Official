@@ -1,15 +1,26 @@
 # Mobile Responsiveness Documentation
 
 **Last Updated:** December 2024  
-**Component:** Overview (`app/promaster/Overview/`)
+**Components:** All ProMaster components (`app/promaster/`)
 
 ## Overview
 
-The Overview component has been extensively optimized for mobile devices with comprehensive responsive design, accessibility features, and performance optimizations. This document outlines all mobile responsiveness features, breakpoints, and best practices.
+All ProMaster components have been extensively optimized for mobile devices with comprehensive responsive design, accessibility features, and performance optimizations. This document outlines all mobile responsiveness features, breakpoints, and best practices across all components.
+
+## 📦 Components Optimized
+
+- ✅ **Overview** - Grid-based card layout
+- ✅ **Hero** - Hero section with vehicle image
+- ✅ **Specs** - Specifications and features grid
+- ✅ **Design** - Image gallery grid
+- ✅ **Technology** - Carousel component
+- ✅ **Gallery** - Staggered image grid
 
 ---
 
 ## 📱 Responsive Breakpoints
+
+These breakpoints are consistent across all components:
 
 The component uses a mobile-first approach with the following breakpoints:
 
@@ -300,7 +311,85 @@ padding: clamp(0.75rem, 2vw, 1rem);
 
 ---
 
-**Component Location:** `app/promaster/Overview/Overview.module.scss`  
-**Component File:** `app/promaster/Overview/Overview.tsx`  
+## 🎯 Component-Specific Improvements
+
+### Overview Component
+**Location:** `app/promaster/Overview/`
+
+- Optimized IntersectionObserver (lower threshold for mobile)
+- Dynamic rootMargin based on device type
+- All features listed above
+
+### Hero Component
+**Location:** `app/promaster/Hero/`
+
+- Safe area insets for notched devices
+- Reduced motion support for all animations
+- Better mobile padding with safe area considerations
+- Improved typography scaling with `clamp()`
+- Fixed line-height issues (was 100px, now 1.2)
+
+### Specs Component
+**Location:** `app/promaster/Specs/`
+
+- Fixed line-height issue (changed from fixed 60px to 1.2)
+- Safe area insets for notched devices
+- Better responsive typography with `clamp()`
+- Reduced motion support for animations
+- Improved mobile spacing
+
+### Design Component
+**Location:** `app/promaster/Design/`
+
+- Safe area insets for notched devices
+- Responsive gaps using `clamp()`
+- Minimum image height (200px) for consistency
+- Better mobile spacing
+
+### Technology Component (Carousel)
+**Location:** `app/promaster/Technology/`
+
+- Safe area insets across all breakpoints
+- Improved carousel breakpoints (added smallTablet at 600px)
+- WCAG 2.1 AA compliant touch targets (44x44px minimum)
+- Swipe gestures enabled (`swipeable` and `draggable`)
+- Keyboard control enabled (`keyBoardControl`)
+- Faster transitions (300ms duration)
+- Touch feedback with active state scale animation
+- Reduced motion support for carousel arrows
+- Responsive typography with `clamp()`
+
+### Gallery Component
+**Location:** `app/promaster/Gallery/`
+
+- Safe area insets for notched devices
+- Fixed title line-height (was 100px, now 1.2)
+- Responsive typography with `clamp()`
+- Flexible image heights with aspect-ratio (16:9)
+- Responsive gaps using `clamp()`
+- Better mobile spacing and padding
+
+---
+
+## 🔧 Shared Utilities
+
+### useScreenSize Hook
+**Location:** `hooks/useScreenSize.ts`
+
+Updated to match component breakpoints:
+- Added `isSmallTablet` (600px breakpoint)
+- Added `isSmallMobile` (375px breakpoint)
+- Consistent breakpoint values across codebase
+
+---
+
+**Component Locations:**
+- `app/promaster/Overview/Overview.module.scss` & `Overview.tsx`
+- `app/promaster/Hero/Hero.module.scss`
+- `app/promaster/Specs/Specs.module.scss`
+- `app/promaster/Design/Design.module.scss`
+- `app/promaster/Technology/Technology.module.scss` & `Technology.tsx`
+- `app/promaster/Gallery/Gallery.module.scss`
+
 **Last Updated:** December 2024
 

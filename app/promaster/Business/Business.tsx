@@ -54,8 +54,8 @@ export default function Business({ businessPoints }: BusinessProps) {
   }, []);
 
   return (
-    <section className={styles.business} aria-labelledby='business-section-title'>
-      <h2 id='business-section-title' className={styles.title}>{businessPoints.title}</h2>
+    <section className={styles.business} aria-labelledby='business-section-title' itemScope itemType='https://schema.org/Service'>
+      <h2 id='business-section-title' className={styles.title}>{businessPoints.title || 'RAM ProMaster EV Business Benefits'}</h2>
       <div className={styles.content}>
         {businessPoints.businessPoints.map((point, index) => (
           <div key={index} className={styles.businessItem}>
@@ -82,6 +82,8 @@ export default function Business({ businessPoints }: BusinessProps) {
                 rel='noopener noreferrer'
                 className={styles.button}
                 style={{ backgroundColor: 'var(--brand-color)' }}
+                aria-label={`${point.buttonText} - ${point.title} - RAM ProMaster EV`}
+                title={`${point.buttonText} - Learn more about ${point.title} for RAM ProMaster EV`}
               >
                 {point.buttonText} →
               </a>

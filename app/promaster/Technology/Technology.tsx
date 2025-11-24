@@ -65,12 +65,17 @@ export default function Technology({ technologyPoints }: TechnologyProps) {
       slidesToSlide: 2,
     },
     tablet: {
-      breakpoint: { max: 1024, min: 464 },
+      breakpoint: { max: 1024, min: 600 },
+      items: 1,
+      slidesToSlide: 1,
+    },
+    smallTablet: {
+      breakpoint: { max: 600, min: 480 },
       items: 1,
       slidesToSlide: 1,
     },
     mobile: {
-      breakpoint: { max: 464, min: 0 },
+      breakpoint: { max: 480, min: 0 },
       items: 1,
       slidesToSlide: 1,
     },
@@ -89,13 +94,18 @@ export default function Technology({ technologyPoints }: TechnologyProps) {
             arrows={false}
             customButtonGroup={<CustomButtonGroup />}
             renderButtonGroupOutside={true}
+            swipeable={true}
+            draggable={true}
+            showDots={false}
+            keyBoardControl={true}
+            transitionDuration={300}
           >
             {technologyPoints.technology.map((point, index) => (
               <div key={index} className={styles.chargingOptions}>
                 <div className={styles.imageContainer}>
                   <Image
                     src={point.imageUrl}
-                    alt={`RAM ProMaster EV ${point.title} - ${point.description.substring(0, 50)}`}
+                    alt={`2024 RAM ProMaster EV ${point.title} - ${point.description.substring(0, 60).replace(/\.$/, '')} - Commercial Electric Van Technology`}
                     fill
                     style={{ objectFit: 'contain' }}
                     className={styles.image}

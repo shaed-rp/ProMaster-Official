@@ -12,11 +12,13 @@ interface CapabilitySpec {
 }
 
 interface CapabilitiesProps {
+  title: string;
+  navLinkText: string;
   specs: CapabilitySpec[];
 }
 
 const Capability = ({ capabilities }: { capabilities: CapabilitiesProps }) => {
-  const { specs } = capabilities;
+  const { specs, title } = capabilities;
   const specItemsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   const splitValue = (value: string) => {
@@ -57,7 +59,7 @@ const Capability = ({ capabilities }: { capabilities: CapabilitiesProps }) => {
   return (
     <section className={styles.capability} aria-labelledby='capability-section-title'>
       <div className={styles.capabilityContainer}>
-        <h2 id='capability-section-title' className={styles.title}>More Capable Than Ever</h2>
+        <h2 id='capability-section-title' className={styles.title}>{title}</h2>
         <div className={styles.content}>
           <div className={styles.specsContainer}>
             {specs.map((spec, index) => (

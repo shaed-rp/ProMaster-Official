@@ -47,16 +47,49 @@ export const metadata: Metadata = {
     'ProMaster EV price',
     'ProMaster EV range',
     'ProMaster EV charging',
+    'RAM ProMaster EV specifications',
+    'RAM ProMaster EV features',
+    'RAM ProMaster EV review',
+    'RAM ProMaster EV vs competitors',
+    'best commercial electric van',
+    'electric van for business',
+    'commercial EV tax credits',
+    'RAM ProMaster EV battery',
+    'RAM ProMaster EV payload',
+    'RAM ProMaster EV cargo capacity',
+    'RAM ProMaster EV warranty',
+    'how to charge RAM ProMaster EV',
+    'RAM ProMaster EV charging time',
+    'commercial electric van comparison',
+    'fleet electric vehicle',
+    'zero emission delivery van',
+    'electric van range',
+    'commercial EV incentives',
   ],
-  authors: [{ name: 'CommercialEVs' }],
+  authors: [{ name: 'CommercialEVs', url: baseUrl }],
   publisher: 'CommercialEVs',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    // Add Google Search Console verification if available
+    // google: 'your-verification-code',
+  },
   alternates: {
     canonical: baseUrl,
   },
   openGraph: {
-    title: '2024 RAM ProMaster EV | Commercial Electric Van',
+    title: '2024 RAM ProMaster EV | Commercial Electric Van | CommercialEVs.com',
     description:
-      'Discover the 2024 RAM ProMaster EV - Zero emissions, 162-mile range, 3,020 lb payload. Customize your commercial electric van with tax credits available.',
+      'Discover the 2024 RAM ProMaster EV commercial electric van. Zero emissions, 162-mile range, 3,020 lb payload, 520 cubic feet cargo space. Features 110 kWh battery, 268 HP, 302 lb-ft torque. Starting at $77,995. Eligible for tax credits.',
     url: promasterData.siteConfig.url,
     siteName: 'CommercialEVs.com',
     locale: 'en_US',
@@ -72,9 +105,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '2024 RAM ProMaster EV | Commercial Electric Van',
+    title: '2024 RAM ProMaster EV | Commercial Electric Van | CommercialEVs.com',
     description:
-      'Discover the 2024 RAM ProMaster EV - Zero emissions, 162-mile range, 3,020 lb payload. Get a free quote today.',
+      'Discover the 2024 RAM ProMaster EV commercial electric van. Zero emissions, 162-mile range, 3,020 lb payload, 520 cubic feet cargo space. Features 110 kWh battery, 268 HP, 302 lb-ft torque. Starting at $77,995. Eligible for tax credits.',
     images: [promasterData.siteConfig.ogImage],
     creator: '@CommercialEVs',
   },
@@ -106,6 +139,9 @@ export default function RootLayout({
         <link rel='dns-prefetch' href='https://snap.licdn.com' />
         <link rel='dns-prefetch' href='https://fonts.googleapis.com' />
         <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />
+        {/* Additional resource hints for better performance */}
+        <link rel='dns-prefetch' href='https://fonts.googleapis.com' />
+        <link rel='preconnect' href='https://fonts.googleapis.com' />
         {/* Preload critical resources */}
         <link
           rel='preload'

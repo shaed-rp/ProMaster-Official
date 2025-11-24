@@ -44,8 +44,8 @@ export default function Charging({ chargingPoints }: ChargingProps) {
   }
 
   return (
-    <section className={styles.charging} aria-labelledby='charging-section-title'>
-      <h2 id='charging-section-title' className={styles.title}>{chargingPoints.title}</h2>
+    <section className={styles.charging} aria-labelledby='charging-section-title' itemScope itemType='https://schema.org/HowTo'>
+      <h2 id='charging-section-title' className={styles.title}>{chargingPoints.title || 'RAM ProMaster EV Charging'}</h2>
       <div className={styles.content}>
         {chargingPoints.chargingOptions.map((option, index) => (
           <div

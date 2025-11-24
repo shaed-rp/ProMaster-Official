@@ -62,7 +62,7 @@ const Hero = ({ heroPoints, siteConfig, openModal }: HeroProps) => {
       return (
         <Image
           src={point.backgroundImageUrl}
-          alt='RAM ProMaster EV in commercial warehouse setting'
+          alt='2024 RAM ProMaster EV commercial electric van in warehouse setting - Commercial vehicle for business operations'
           fill
           priority
           style={{
@@ -84,7 +84,9 @@ const Hero = ({ heroPoints, siteConfig, openModal }: HeroProps) => {
   return (
     <section
       className={`${styles.hero} ${isLoaded ? styles.loaded : ''}`}
-      aria-label='Hero section'
+      aria-labelledby='hero-section-title'
+      itemScope
+      itemType='https://schema.org/Vehicle'
     >
       <div className={styles.heroContainer}>
         <div className={styles.imageContainer}>
@@ -104,13 +106,13 @@ const Hero = ({ heroPoints, siteConfig, openModal }: HeroProps) => {
           </div>
         </div>
         <div className={styles.textContainer}>
-          <h1>{highlightText(point.title, 'EV')}</h1>
-          <p>{point.description}</p>
+          <h1 id='hero-section-title' itemProp='name'>{highlightText(point.title, 'EV')}</h1>
+          <p itemProp='description'>{point.description}</p>
           <Image
             src={'/icons/cevTextLogoBlk.png'}
             height={isDesktop ? 50 : 40}
             width={isDesktop ? 300 : 240}
-            alt='CEV Logo'
+            alt='CommercialEVs.com - Commercial Electric Vehicle Marketplace'
             className={`${styles.cevLogo} ${styles.fadeIn}`}
           />
           <ContactSalesButton

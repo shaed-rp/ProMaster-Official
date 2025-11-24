@@ -103,12 +103,12 @@
 
 @media (max-width: 768px) {
   .design {
-    padding: 30px 15px;
+    padding: 30px max(15px, env(safe-area-inset-left)) 30px max(15px, env(safe-area-inset-right));
 
     .imageGrid {
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      gap: clamp(1rem, 3vw, 2rem);
 
       .imageContainer {
         width: 100%;
@@ -144,14 +144,15 @@
 
 @media (max-width: 480px) {
   .design {
-    padding: 20px 10px;
+    padding: 20px max(10px, env(safe-area-inset-left)) 20px max(10px, env(safe-area-inset-right));
 
     .imageGrid {
-      gap: 0.5rem;
+      gap: clamp(0.5rem, 2vw, 1rem);
 
       .imageContainer {
         aspect-ratio: 4 / 3;
         margin-bottom: 0rem;
+        min-height: 200px;
       }
     }
   }

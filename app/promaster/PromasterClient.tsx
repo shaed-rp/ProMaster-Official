@@ -21,6 +21,7 @@ import SectionRenderer from '@components/SectionRenderer/SectionRenderer';
 import { VehicleData } from '@/types/vehicle';
 import StructuredData from '@components/StructuredData/StructuredData';
 import SkipLink from '@components/SkipLink/SkipLink';
+import Breadcrumb from '@components/Breadcrumb/Breadcrumb';
 
 const baseUrl =
   process.env.NEXT_PUBLIC_BASE_URL || 'https://commercialevs.com';
@@ -127,6 +128,13 @@ export default function PromasterClient({ data }: { data: VehicleData }) {
         <ThemeProvider brandColor={data.siteConfig.brandColor}>
             <StructuredData data={data} baseUrl={baseUrl} />
             <SkipLink />
+            <Breadcrumb
+                items={[
+                    { label: 'Home', href: '/' },
+                    { label: 'Commercial Electric Vehicles', href: '/promaster' },
+                    { label: 'RAM ProMaster EV' },
+                ]}
+            />
             <div className={styles.home}>
                 <Navbar
                     vehicleId='promaster'
