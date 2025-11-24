@@ -12,7 +12,7 @@ Quick reference checklist for deploying to Vercel or other platforms.
 - [x] Code committed to Git
 
 ### Configuration
-- [x] `next.config.ts` is valid
+- [x] `next.config.ts` is valid (no deprecated options like `swcMinify`)
 - [x] `package.json` has correct scripts
 - [x] `.env.example` documents all variables
 - [x] `.gitignore` excludes sensitive files
@@ -62,9 +62,11 @@ Quick reference checklist for deploying to Vercel or other platforms.
 If deployment fails:
 - [ ] Check build logs
 - [ ] Verify environment variables
-- [ ] Test build locally first
-- [ ] Check for TypeScript errors
+- [ ] Test build locally first (`npm run build`)
+- [ ] Check for TypeScript errors (especially union types like `SpecItem | string`)
+- [ ] Verify `next.config.ts` has no deprecated options
 - [ ] Verify all dependencies installed
+- [ ] Clear `.next` directory and rebuild
 
 ---
 

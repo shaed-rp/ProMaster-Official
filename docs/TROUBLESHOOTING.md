@@ -155,6 +155,95 @@ SassError: File to import not found
 
 ---
 
+### Issue: TypeScript build errors with SpecItem type
+
+**Symptoms:**
+```
+Type error: Property 'value' does not exist on type 'string | SpecItem'.
+Property 'value' does not exist on type 'string'.
+```
+
+**Cause:**
+The `SpecDetail.data` array can contain both `SpecItem` objects and `string` values. When using `.find()` to locate items, TypeScript doesn't know if the result is a `SpecItem` (which has a `value` property) or a `string` (which doesn't).
+
+**Solutions:**
+
+1. **Use type guard function:**
+   ```typescript
+   // Helper function to check if item is SpecItem
+   const isSpecItem = (item: any): item is SpecItem => {
+     return typeof item === 'object' && item !== null && 'type' in item && 'value' in item;
+   };
+
+   // Use type guard before accessing properties
+   const item = pricingSection?.data?.find(
+     (item) => isSpecItem(item) && item.type === 'Base Price'
+   );
+   const basePrice = isSpecItem(item) ? item.value : undefined;
+   ```
+
+2. **Type narrowing with type assertion (less safe):**
+   ```typescript
+   const basePriceItem = pricingSection?.data?.find(
+     (item: any) => typeof item === 'object' && item.type === 'Base Price'
+   ) as SpecItem | undefined;
+   const basePrice = basePriceItem?.value;
+   ```
+
+3. **Filter and map pattern:**
+   ```typescript
+   const basePriceItem = pricingSection?.data
+     .filter((item): item is SpecItem => isSpecItem(item))
+     .find((item) => item.type === 'Base Price');
+   const basePrice = basePriceItem?.value;
+   ```
+
+**Note:** The project uses the type guard approach (Solution 1) for better type safety.
+
+---
+
+### Issue: Build fails with deprecated Next.js config options
+
+**Symptoms:**
+```
+⚠ Invalid next.config.ts options detected: 
+⚠     Unrecognized key(s) in object: 'swcMinify'
+```
+
+**Cause:**
+In Next.js 13+, SWC minification is enabled by default and the `swcMinify` option has been removed. This option is no longer valid in Next.js 16.
+
+**Solutions:**
+
+1. **Remove deprecated option:**
+   ```typescript
+   // ❌ Remove this
+   const nextConfig: NextConfig = {
+     swcMinify: true,  // Deprecated in Next.js 16
+   };
+
+   // ✅ Correct - SWC minification is enabled by default
+   const nextConfig: NextConfig = {
+     // No swcMinify needed
+   };
+   ```
+
+2. **Check Next.js version:**
+   ```bash
+   npm list next
+   # Should show Next.js 16.x
+   ```
+
+3. **Verify build:**
+   ```bash
+   npm run build
+   # Should complete without warnings
+   ```
+
+**Note:** SWC minification is automatically enabled in Next.js 13+ and cannot be disabled. No configuration is needed.
+
+---
+
 ### Issue: Build succeeds but pages don't render
 
 **Symptoms:**

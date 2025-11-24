@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.1] - 2025-01-XX
+
+### Fixed
+- Fixed TypeScript build errors in StructuredData component
+- Added type guard function `isSpecItem()` for proper type narrowing
+- Removed deprecated `swcMinify` option from `next.config.ts` (Next.js 16 has SWC minification enabled by default)
+- Build now passes successfully on Vercel
+
+### Changed
+- Improved type safety in StructuredData component when accessing SpecItem properties
+- Updated next.config.ts to remove deprecated configuration options
+
 ## [1.3.0] - 2025-01-15
 
 ### Added

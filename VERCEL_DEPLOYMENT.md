@@ -187,8 +187,10 @@ vercel env add RECAPTCHA_SECRET_KEY
 1. Check build logs in Vercel dashboard
 2. Verify Node.js version (Vercel uses latest LTS)
 3. Ensure all dependencies are in `package.json`
-4. Check for TypeScript errors locally first
-5. Verify `next.config.ts` is valid
+4. Check for TypeScript errors locally first (`npm run build`)
+5. Verify `next.config.ts` is valid (no deprecated options like `swcMinify`)
+6. Ensure type guards are used when accessing union types (e.g., `SpecItem | string`)
+7. Clear `.next` directory and rebuild: `rm -rf .next && npm run build`
 
 ### Environment Variables Not Working
 
