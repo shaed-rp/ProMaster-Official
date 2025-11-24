@@ -31,7 +31,11 @@ export default function Charging({ chargingPoints }: ChargingProps) {
       </h2>
       <div className={styles.content}>
         {chargingPoints.chargingOptions.map((option, index) => (
-          <ChargingCard key={index} option={option} index={index} />
+          <ChargingCard 
+            key={`charging-${option.title}-${index}`} 
+            option={option} 
+            index={index} 
+          />
         ))}
       </div>
     </section>

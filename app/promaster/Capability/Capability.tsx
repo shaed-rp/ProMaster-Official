@@ -29,7 +29,11 @@ const Capability = ({ capabilities }: { capabilities: CapabilitiesProps }) => {
         <div className={styles.content}>
           <div className={styles.specsContainer}>
             {specs.map((spec, index) => (
-              <CapabilityItem key={index} spec={spec} index={index} />
+              <CapabilityItem 
+                key={spec.label ? `capability-${spec.label}-${index}` : `capability-${index}`} 
+                spec={spec} 
+                index={index} 
+              />
             ))}
           </div>
         </div>

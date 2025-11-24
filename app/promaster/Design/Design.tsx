@@ -33,7 +33,7 @@ const Design = ({ designPoints }: DesignProps) => {
       <div className={styles.imageGrid}>
         {designPoints.images.map((image, index) => (
           <DesignImage
-            key={index}
+            key={`design-${image.imageUrl}-${index}`}
             image={image}
             index={index}
             sizeClass={getSizeClass(index)}

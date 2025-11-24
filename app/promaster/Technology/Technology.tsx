@@ -101,7 +101,7 @@ export default function Technology({ technologyPoints }: TechnologyProps) {
             transitionDuration={300}
           >
             {technologyPoints.technology.map((point, index) => (
-              <div key={index} className={styles.chargingOptions}>
+              <div key={`technology-${point.title}-${index}`} className={styles.chargingOptions}>
                 <div className={styles.imageContainer}>
                   <Image
                     src={point.imageUrl}

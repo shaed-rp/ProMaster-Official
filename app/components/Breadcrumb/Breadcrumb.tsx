@@ -16,7 +16,7 @@ export default function Breadcrumb({ items }: BreadcrumbProps) {
       <ol itemScope itemType='https://schema.org/BreadcrumbList' className={styles.breadcrumbList}>
         {items.map((item, index) => (
           <li
-            key={index}
+            key={`breadcrumb-${item.label}-${item.href || 'current'}-${index}`}
             itemProp='itemListElement'
             itemScope
             itemType='https://schema.org/ListItem'

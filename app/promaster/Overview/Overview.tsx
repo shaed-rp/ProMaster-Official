@@ -8,7 +8,7 @@ interface OverviewProps {
 
 const Overview = ({ overview }: OverviewProps) => {
   // Use cardSizes from data, fallback to default if not provided
-  const cardSizes: string[] = overview.cardSizes ?? [
+  const defaultCardSizes = [
     'large',
     'small',
     'medium',
@@ -20,6 +20,9 @@ const Overview = ({ overview }: OverviewProps) => {
     'medium',
     'medium',
   ];
+  // Type assertion needed due to optional property access in strict mode
+  const overviewWithCardSizes = overview as OverviewType & { cardSizes?: string[] };
+  const cardSizes: string[] = overviewWithCardSizes.cardSizes ?? defaultCardSizes;
 
   return (
     <section
@@ -35,9 +38,9 @@ const Overview = ({ overview }: OverviewProps) => {
         <div className={styles.pointsContainer}>
           {overview.specs.map((spec, index) => (
             <OverviewCard
-              key={index}
+              key={spec.title ? `${spec.title}-${index}` : `spec-${index}`}
               spec={spec}
-              size={cardSizes[index] || 'small'}
+              size={(cardSizes[index] || 'small') as 'small' | 'medium' | 'large' | 'vertical'}
               index={index}
             />
           ))}

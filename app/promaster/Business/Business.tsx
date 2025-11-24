@@ -30,7 +30,11 @@ export default function Business({ businessPoints }: BusinessProps) {
       </h2>
       <div className={styles.content}>
         {businessPoints.businessPoints.map((point, index) => (
-          <BusinessItem key={index} point={point} index={index} />
+          <BusinessItem 
+            key={`business-${point.title}-${index}`} 
+            point={point} 
+            index={index} 
+          />
         ))}
       </div>
     </section>

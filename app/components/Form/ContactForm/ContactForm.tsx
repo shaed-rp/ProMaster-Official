@@ -123,9 +123,24 @@ const ContactForm = ({ onSubmit, siteTitle }: ContactFormProps) => {
   };
 
   useEffect(() => {
+    let cancelled = false;
+
     fetch('/api/contact')
       .then((res) => res.json())
-      .then((data) => setSiteKey(data.recaptchaKey));
+      .then((data) => {
+        if (!cancelled) {
+          setSiteKey(data.recaptchaKey);
+        }
+      })
+      .catch((error) => {
+        if (!cancelled && process.env.NODE_ENV === 'development') {
+          console.error('Failed to load reCAPTCHA key:', error);
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   return (
