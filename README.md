@@ -299,10 +299,10 @@ See [`docs/MOBILE_RESPONSIVENESS.md`](./docs/MOBILE_RESPONSIVENESS.md) for compl
 
 ### SEO Documentation
 - [`SEO_DOCUMENTATION_INDEX.md`](./SEO_DOCUMENTATION_INDEX.md) - Complete SEO documentation index
-- [`README_SEO.md`](./README_SEO.md) - Quick start guide for SEO
-- [`COMPLETE_SEO_ENHANCEMENTS_FINAL.md`](./COMPLETE_SEO_ENHANCEMENTS_FINAL.md) - Complete SEO enhancements summary
+- [`COMPLETE_SEO_ENHANCEMENTS_FINAL.md`](./COMPLETE_SEO_ENHANCEMENTS_FINAL.md) - Complete SEO enhancements summary ⭐ PRIMARY
 - [`SEO_AI_SEARCH_REVIEW.md`](./SEO_AI_SEARCH_REVIEW.md) - AI search engine optimization guide
 - [`TOP_SECTION_SEO_REVIEW.md`](./TOP_SECTION_SEO_REVIEW.md) - Header/navbar/hero section review
+- [`docs/archive/`](./docs/archive/) - Historical SEO documentation
 
 ## 📄 License
 
@@ -364,8 +364,8 @@ For support or questions:
 - Capability (Server + Client split)
 - PromasterClient (Refactored)
 
-See [`COMPLETE_OPTIMIZATION_SUMMARY.md`](./COMPLETE_OPTIMIZATION_SUMMARY.md) for complete optimization details.  
-See [`REFINEMENTS_SUMMARY.md`](./REFINEMENTS_SUMMARY.md) for error handling and accessibility improvements.  
+See [`COMPLETE_OPTIMIZATION_SUMMARY.md`](./COMPLETE_OPTIMIZATION_SUMMARY.md) for complete optimization details (includes error handling and accessibility improvements).  
 See [`SEO_DOCUMENTATION_INDEX.md`](./SEO_DOCUMENTATION_INDEX.md) for complete SEO documentation.  
-See [`docs/NAVIGATION_IMPROVEMENTS.md`](./docs/NAVIGATION_IMPROVEMENTS.md) for navigation improvements documentation.
+See [`docs/NAVIGATION_IMPROVEMENTS.md`](./docs/NAVIGATION_IMPROVEMENTS.md) for navigation improvements documentation.  
+See [`docs/archive/`](./docs/archive/) for historical optimization and SEO documentation.
 

@@ -54,27 +54,17 @@ Quick reference guide to all project documentation.
 - Performance improvements
 - SEO benefits
 
-### [REFINEMENTS_SUMMARY.md](./REFINEMENTS_SUMMARY.md)
-**Error handling and accessibility refinements**
-- ContactForm improvements (loading states, error feedback)
-- Modal accessibility (ESC key, focus trap)
-- Error boundaries
-- Production-safe logging
-- User experience enhancements
+### [COMPLETE_OPTIMIZATION_SUMMARY.md](./COMPLETE_OPTIMIZATION_SUMMARY.md)
+**Complete server/client optimization summary** ⭐ PRIMARY
+- All 10 components optimized
+- 40-50% bundle size reduction
+- Server/client component splitting patterns
+- Performance improvements
+- SEO benefits
+- Error handling and accessibility refinements
+- Complete optimization statistics and metrics
 
-### [SERVER_CLIENT_REVIEW.md](./SERVER_CLIENT_REVIEW.md)
-**Initial server/client architecture review**
-- Detailed analysis of server vs client boundaries
-- Optimization recommendations
-- Code examples and patterns
-- Impact analysis
-
-### [FINAL_OPTIMIZATION_REPORT.md](./FINAL_OPTIMIZATION_REPORT.md)
-**Final comprehensive optimization report**
-- Complete optimization statistics
-- Architecture changes
-- Performance metrics
-- Testing checklist
+**Note:** Additional optimization details and historical reviews have been archived in [`docs/archive/`](./docs/archive/)
 
 ### [docs/API.md](./docs/API.md) ⭐ NEW
 **API documentation**
@@ -161,12 +151,9 @@ Historical documentation files have been moved to [`docs/archive/`](./docs/archi
 - [Performance Optimizations](./docs/MOBILE_RESPONSIVENESS.md#performance-optimizations)
 
 ### Performance & Architecture
-- [Complete Optimization Summary](./COMPLETE_OPTIMIZATION_SUMMARY.md)
-- [Server/Client Review](./SERVER_CLIENT_REVIEW.md)
-- [Final Optimization Report](./FINAL_OPTIMIZATION_REPORT.md)
-- [Refinements Summary](./REFINEMENTS_SUMMARY.md)
-- [Additional Optimizations](./ADDITIONAL_OPTIMIZATIONS.md)
+- [Complete Optimization Summary](./COMPLETE_OPTIMIZATION_SUMMARY.md) ⭐ PRIMARY
 - [Architecture Documentation](./docs/ARCHITECTURE.md) ⭐ NEW
+- [Historical Optimization Files](./docs/archive/) - Archived optimization reviews and reports
 
 ### API & Integration
 - [API Documentation](./docs/API.md) ⭐ NEW
