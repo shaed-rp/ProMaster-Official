@@ -201,7 +201,7 @@ The contact form (`/api/contact`) includes:
 3. Add environment variables in Vercel dashboard (Settings → Environment Variables)
 4. Deploy automatically on push
 
-**Detailed Guide:** See [`VERCEL_DEPLOYMENT.md`](./VERCEL_DEPLOYMENT.md) for complete deployment instructions.
+**Detailed Guide:** See [`VERCEL_DEPLOYMENT.md`](./VERCEL_DEPLOYMENT.md) for complete deployment instructions and checklist.
 
 **Environment Variables Required:**
 - `NEXT_PUBLIC_BASE_URL` - Your Vercel domain (update after first deploy)

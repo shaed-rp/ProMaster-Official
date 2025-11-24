@@ -5,18 +5,30 @@ Complete guide for deploying the RAM ProMaster EV Landing Page to Vercel.
 ## ✅ Pre-Deployment Checklist
 
 ### Build Verification
-- [x] Build succeeds locally (`npm run build`)
-- [x] No TypeScript errors
-- [x] No linter errors
-- [x] All routes generate correctly
-- [x] Static pages prerender successfully
+- [ ] Build succeeds locally (`npm run build`)
+- [ ] No TypeScript errors
+- [ ] No linter errors
+- [ ] All routes generate correctly
+- [ ] Static pages prerender successfully
 
 ### Code Quality
-- [x] Next.js 16.0.3 (Vercel compatible)
-- [x] React 19.2.0 (Vercel compatible)
-- [x] API routes use Next.js App Router format
-- [x] Environment variables properly configured
-- [x] Error handling production-safe
+- [ ] Next.js 16.0.3 (Vercel compatible)
+- [ ] React 19.2.0 (Vercel compatible)
+- [ ] API routes use Next.js App Router format
+- [ ] Environment variables properly configured
+- [ ] Error handling production-safe
+- [ ] Code committed to Git
+- [ ] `next.config.ts` is valid (no deprecated options like `swcMinify`)
+- [ ] `package.json` has correct scripts
+- [ ] `.env.example` documents all variables
+- [ ] `.gitignore` excludes sensitive files
+
+### Functionality Testing
+- [ ] All routes tested locally
+- [ ] Contact form works
+- [ ] Images load correctly
+- [ ] Styles apply correctly
+- [ ] Analytics tracking works
 
 ## 🚀 Deployment Steps
 

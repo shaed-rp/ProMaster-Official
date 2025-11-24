@@ -48,16 +48,8 @@ Quick reference guide to all project documentation.
 - Responsive design updates
 - Visual enhancements and animations
 
-### [COMPLETE_OPTIMIZATION_SUMMARY.md](./COMPLETE_OPTIMIZATION_SUMMARY.md)
+### [COMPLETE_OPTIMIZATION_SUMMARY.md](./COMPLETE_OPTIMIZATION_SUMMARY.md) ⭐ PRIMARY
 **Complete server/client optimization summary**
-- All 10 components optimized
-- 40-50% bundle size reduction
-- Server/client component splitting patterns
-- Performance improvements
-- SEO benefits
-
-### [COMPLETE_OPTIMIZATION_SUMMARY.md](./COMPLETE_OPTIMIZATION_SUMMARY.md)
-**Complete server/client optimization summary** ⭐ PRIMARY
 - All 10 components optimized
 - 40-50% bundle size reduction
 - Server/client component splitting patterns
@@ -117,6 +109,15 @@ Quick reference guide to all project documentation.
 - Commit message guidelines
 - Testing requirements
 
+### [VERCEL_DEPLOYMENT.md](./VERCEL_DEPLOYMENT.md)
+**Complete Vercel deployment guide**
+- Pre-deployment checklist
+- Step-by-step deployment instructions
+- Environment variables configuration
+- Post-deployment verification
+- Troubleshooting guide
+- Vercel-specific features and optimizations
+
 ## 📁 Archive
 
 Historical documentation files have been moved to [`docs/archive/`](./docs/archive/) for reference.
@@ -166,6 +167,10 @@ Historical documentation files have been moved to [`docs/archive/`](./docs/archi
 - [Testing Documentation](./docs/TESTING.md) ⭐ NEW
 - [Contributing Guidelines](./CONTRIBUTING.md) ⭐ NEW
 - [Troubleshooting Guide](./docs/TROUBLESHOOTING.md) ⭐ NEW
+
+### Deployment
+- [Vercel Deployment Guide](./VERCEL_DEPLOYMENT.md) - Complete deployment guide with checklist
+- [Deployment Checklist](./VERCEL_DEPLOYMENT.md#pre-deployment-checklist) - Pre-deployment verification
 
 ## 📝 Documentation Standards
 
