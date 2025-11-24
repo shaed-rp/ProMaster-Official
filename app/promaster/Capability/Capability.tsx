@@ -55,9 +55,9 @@ const Capability = ({ capabilities }: { capabilities: CapabilitiesProps }) => {
   }, []);
 
   return (
-    <section className={styles.capability}>
+    <section className={styles.capability} aria-labelledby='capability-section-title'>
       <div className={styles.capabilityContainer}>
-        <h1 className={styles.title}>More Capable Than Ever</h1>
+        <h2 id='capability-section-title' className={styles.title}>More Capable Than Ever</h2>
         <div className={styles.content}>
           <div className={styles.specsContainer}>
             {specs.map((spec, index) => (
@@ -81,10 +81,11 @@ const Capability = ({ capabilities }: { capabilities: CapabilitiesProps }) => {
                     <div className={styles.imageWrapper}>
                       <Image
                         src={spec.imageUrl}
-                        alt={spec.label || 'Capability image'}
+                        alt={spec.label ? `RAM ProMaster EV ${spec.label}` : 'RAM ProMaster EV capability feature'}
                         width={500}
                         height={300}
                         style={{ objectFit: 'cover' }}
+                        loading='lazy'
                       />
                     </div>
                   </div>

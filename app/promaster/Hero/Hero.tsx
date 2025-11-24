@@ -62,7 +62,7 @@ const Hero = ({ heroPoints, siteConfig, openModal }: HeroProps) => {
       return (
         <Image
           src={point.backgroundImageUrl}
-          alt='Main Background Image'
+          alt='RAM ProMaster EV in commercial warehouse setting'
           fill
           priority
           style={{
@@ -82,7 +82,10 @@ const Hero = ({ heroPoints, siteConfig, openModal }: HeroProps) => {
   };
 
   return (
-    <section className={`${styles.hero} ${isLoaded ? styles.loaded : ''}`}>
+    <section
+      className={`${styles.hero} ${isLoaded ? styles.loaded : ''}`}
+      aria-label='Hero section'
+    >
       <div className={styles.heroContainer}>
         <div className={styles.imageContainer}>
           {renderBackground()}
@@ -92,7 +95,7 @@ const Hero = ({ heroPoints, siteConfig, openModal }: HeroProps) => {
           >
             <Image
               src={point.imageUrl}
-              alt='Demo Vehicle'
+              alt='2024 RAM ProMaster EV - Commercial Electric Van'
               priority
               width={isDesktop ? 500 : 400}
               height={isDesktop ? 400 : 300}

@@ -48,8 +48,8 @@ const Design = ({ designPoints }: DesignProps) => {
   }, [startAnimation]);
 
   return (
-    <section ref={sectionRef} className={styles.design}>
-      <h2 className={styles.title}>{designPoints.title}</h2>
+    <section ref={sectionRef} className={styles.design} aria-labelledby='design-section-title'>
+      <h2 id='design-section-title' className={styles.title}>{designPoints.title}</h2>
       <div className={styles.imageGrid}>
         {designPoints.images.map((image, index) => {
           let sizeClass = '';
@@ -70,6 +70,7 @@ const Design = ({ designPoints }: DesignProps) => {
                 fill
                 style={{ objectFit: 'cover' }}
                 className={styles.image}
+                loading='lazy'
               />
             </div>
           );

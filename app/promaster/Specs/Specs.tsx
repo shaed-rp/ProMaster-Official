@@ -105,9 +105,9 @@ export default function Specs({ specPoints }: SpecsProps) {
   };
 
   return (
-    <div className={styles.specs}>
+    <section className={styles.specs} aria-labelledby='specs-section-title'>
       <div className={styles.specsContainer}>
-        <h2 className={styles.title}>Specs</h2>
+        <h2 id='specs-section-title' className={styles.title}>Specs</h2>
         <div className={styles.specGrid}>
           <div className={styles.leftColumn}>
             {renderPricingPowertrain(specPoints[0])}
@@ -121,6 +121,6 @@ export default function Specs({ specPoints }: SpecsProps) {
           {renderInteriorFeatures(specPoints[3])}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

@@ -19,6 +19,11 @@ import { ThemeProvider } from '@/contexts/ThemeContext';
 import { useRouter } from 'next/navigation';
 import SectionRenderer from '@components/SectionRenderer/SectionRenderer';
 import { VehicleData } from '@/types/vehicle';
+import StructuredData from '@components/StructuredData/StructuredData';
+import SkipLink from '@components/SkipLink/SkipLink';
+
+const baseUrl =
+  process.env.NEXT_PUBLIC_BASE_URL || 'https://commercialevs.com';
 
 export default function PromasterClient({ data }: { data: VehicleData }) {
     const router = useRouter();
@@ -120,13 +125,15 @@ export default function PromasterClient({ data }: { data: VehicleData }) {
 
     return (
         <ThemeProvider brandColor={data.siteConfig.brandColor}>
+            <StructuredData data={data} baseUrl={baseUrl} />
+            <SkipLink />
             <div className={styles.home}>
                 <Navbar
                     vehicleId='promaster'
                     openModal={openModal}
                     sectionTitles={sectionTitles}
                 />
-                <div id='home' className={`${styles.section} ${styles.heroSection}`}>
+                <main id='home' className={`${styles.section} ${styles.heroSection}`}>
                     <div className={styles.sectionContent}>
                         <Hero
                             heroPoints={data.hero}
@@ -134,7 +141,7 @@ export default function PromasterClient({ data }: { data: VehicleData }) {
                             openModal={openModal}
                         />
                     </div>
-                </div>
+                </main>
 
                 <SectionRenderer
                     id='overview'

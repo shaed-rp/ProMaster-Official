@@ -15,31 +15,68 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+const baseUrl =
+  process.env.NEXT_PUBLIC_BASE_URL || 'https://commercialevs.com';
+
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_BASE_URL || 'https://commercialevs.com'
-  ),
-  title: promasterData.siteConfig.title,
-  description: promasterData.siteConfig.description,
+  metadataBase: new URL(baseUrl),
+  title: '2024 RAM ProMaster EV | Commercial Electric Van | CommercialEVs.com',
+  description:
+    'Discover the 2024 RAM ProMaster EV commercial electric van. Zero emissions, 162-mile range, 3,020 lb payload capacity, 520 cubic feet cargo space. Features 110 kWh battery, 268 HP, 302 lb-ft torque. Starting at $77,995. Eligible for tax credits. Get a free quote today.',
+  keywords: [
+    'RAM ProMaster EV',
+    'commercial electric van',
+    'electric vehicle',
+    'zero emissions van',
+    'commercial EV',
+    'RAM ProMaster',
+    'electric commercial vehicle',
+    'commercial van',
+    'electric van',
+    '2024 RAM ProMaster',
+    'ProMaster electric',
+    'commercial electric vehicle',
+    'electric delivery van',
+    'zero emission commercial vehicle',
+    'electric work van',
+    'BEV commercial van',
+    'electric fleet vehicle',
+    'commercial EV for sale',
+    'RAM electric van',
+    'ProMaster EV specs',
+    'ProMaster EV price',
+    'ProMaster EV range',
+    'ProMaster EV charging',
+  ],
+  authors: [{ name: 'CommercialEVs' }],
+  publisher: 'CommercialEVs',
+  alternates: {
+    canonical: baseUrl,
+  },
   openGraph: {
-    title: promasterData.siteConfig.title,
-    description: promasterData.siteConfig.description,
+    title: '2024 RAM ProMaster EV | Commercial Electric Van',
+    description:
+      'Discover the 2024 RAM ProMaster EV - Zero emissions, 162-mile range, 3,020 lb payload. Customize your commercial electric van with tax credits available.',
     url: promasterData.siteConfig.url,
-    siteName: promasterData.siteConfig.title,
+    siteName: 'CommercialEVs.com',
+    locale: 'en_US',
+    type: 'website',
     images: [
       {
         url: promasterData.siteConfig.ogImage,
         width: 1200,
         height: 630,
-        alt: promasterData.siteConfig.title,
+        alt: '2024 RAM ProMaster EV - Commercial Electric Van',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: promasterData.siteConfig.title,
-    description: promasterData.siteConfig.description,
+    title: '2024 RAM ProMaster EV | Commercial Electric Van',
+    description:
+      'Discover the 2024 RAM ProMaster EV - Zero emissions, 162-mile range, 3,020 lb payload. Get a free quote today.',
     images: [promasterData.siteConfig.ogImage],
+    creator: '@CommercialEVs',
   },
   icons: {
     icon: [
@@ -47,6 +84,9 @@ export const metadata: Metadata = {
       { url: promasterData.siteConfig.faviconUrl, sizes: 'any' },
     ],
     apple: promasterData.siteConfig.faviconUrl,
+  },
+  other: {
+    'theme-color': promasterData.siteConfig.brandColor,
   },
 };
 
@@ -58,6 +98,25 @@ export default function RootLayout({
   return (
     <html lang='en' suppressHydrationWarning>
       <head>
+        {/* Resource Hints for Performance */}
+        <link rel='preconnect' href='https://www.googletagmanager.com' />
+        <link rel='preconnect' href='https://www.google-analytics.com' />
+        <link rel='dns-prefetch' href='https://www.googletagmanager.com' />
+        <link rel='dns-prefetch' href='https://www.google-analytics.com' />
+        <link rel='dns-prefetch' href='https://snap.licdn.com' />
+        <link rel='dns-prefetch' href='https://fonts.googleapis.com' />
+        <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />
+        {/* Preload critical resources */}
+        <link
+          rel='preload'
+          href={promasterData.siteConfig.ogImage}
+          as='image'
+        />
+        <link
+          rel='preload'
+          href={promasterData.siteConfig.logoUrl}
+          as='image'
+        />
         <Script id='google-tag-manager' strategy='afterInteractive'>
           {`
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

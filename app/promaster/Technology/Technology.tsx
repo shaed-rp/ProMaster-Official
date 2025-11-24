@@ -77,8 +77,8 @@ export default function Technology({ technologyPoints }: TechnologyProps) {
   };
 
   return (
-    <section className={styles.technologies}>
-      <h2 className={styles.title}>{technologyPoints.title}</h2>
+    <section className={styles.technologies} aria-labelledby='technology-section-title'>
+      <h2 id='technology-section-title' className={styles.title}>{technologyPoints.title}</h2>
       <div className={styles.carouselContainer}>
         {mounted && (
           <Carousel
@@ -95,10 +95,11 @@ export default function Technology({ technologyPoints }: TechnologyProps) {
                 <div className={styles.imageContainer}>
                   <Image
                     src={point.imageUrl}
-                    alt={point.title}
+                    alt={`RAM ProMaster EV ${point.title} - ${point.description.substring(0, 50)}`}
                     fill
                     style={{ objectFit: 'contain' }}
                     className={styles.image}
+                    loading='lazy'
                   />
                 </div>
                 <div className={styles.infoContainer}>

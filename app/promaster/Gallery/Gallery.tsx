@@ -15,8 +15,8 @@ const Gallery = ({ images, title = 'Vehicle Gallery' }: GalleryProps) => {
   const displayImages = images.slice(0, 7);
 
   return (
-    <section className={styles.gallery}>
-      <h2 className={styles.title}>{title}</h2>
+    <section className={styles.gallery} aria-labelledby='gallery-section-title'>
+      <h2 id='gallery-section-title' className={styles.title}>{title}</h2>
       <div className={styles.staggeredGrid}>
         <div className={`${styles.imageWrapper} ${styles.tall}`}>
           <Image
@@ -24,6 +24,7 @@ const Gallery = ({ images, title = 'Vehicle Gallery' }: GalleryProps) => {
             alt={displayImages[0].alt}
             fill
             style={{ objectFit: 'cover' }}
+            loading='lazy'
           />
         </div>
         <div className={styles.middleSection}>
@@ -34,6 +35,7 @@ const Gallery = ({ images, title = 'Vehicle Gallery' }: GalleryProps) => {
                 alt={displayImages[1].alt}
                 fill
                 style={{ objectFit: 'cover' }}
+                loading='lazy'
               />
             </div>
             <div className={`${styles.imageWrapper} ${styles.small}`}>
@@ -42,6 +44,7 @@ const Gallery = ({ images, title = 'Vehicle Gallery' }: GalleryProps) => {
                 alt={displayImages[2].alt}
                 fill
                 style={{ objectFit: 'cover' }}
+                loading='lazy'
               />
             </div>
           </div>
@@ -51,6 +54,7 @@ const Gallery = ({ images, title = 'Vehicle Gallery' }: GalleryProps) => {
               alt={displayImages[3].alt}
               fill
               style={{ objectFit: 'cover' }}
+              loading='lazy'
             />
           </div>
           <div className={styles.bottomRow}>
@@ -60,6 +64,7 @@ const Gallery = ({ images, title = 'Vehicle Gallery' }: GalleryProps) => {
                 alt={displayImages[4].alt}
                 fill
                 style={{ objectFit: 'cover' }}
+                loading='lazy'
               />
             </div>
             <div className={`${styles.imageWrapper} ${styles.medium}`}>
@@ -68,6 +73,7 @@ const Gallery = ({ images, title = 'Vehicle Gallery' }: GalleryProps) => {
                 alt={displayImages[5].alt}
                 fill
                 style={{ objectFit: 'cover' }}
+                loading='lazy'
               />
             </div>
           </div>
@@ -78,6 +84,7 @@ const Gallery = ({ images, title = 'Vehicle Gallery' }: GalleryProps) => {
             alt={displayImages[6].alt}
             fill
             style={{ objectFit: 'cover' }}
+            loading='lazy'
           />
         </div>
       </div>

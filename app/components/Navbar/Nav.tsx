@@ -154,6 +154,8 @@ const Navbar = ({ vehicleId, openModal, sectionTitles }: NavbarProps) => {
       style={
         { '--brand-color': config.siteConfig.brandColor } as React.CSSProperties
       }
+      aria-label='Main navigation'
+      role='navigation'
     >
       <div className={styles.navContainer}>
         <div className={styles.logo}>
@@ -184,18 +186,31 @@ const Navbar = ({ vehicleId, openModal, sectionTitles }: NavbarProps) => {
           </a>
         </div>
 
-        <div className={styles.hamburger} onClick={toggleMenu}>
+        <button
+          className={styles.hamburger}
+          onClick={toggleMenu}
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
+          aria-controls='main-navigation'
+        >
           <span
             className={`${styles.bar} ${menuOpen ? styles.open : ''}`}
+            aria-hidden='true'
           ></span>
           <span
             className={`${styles.bar} ${menuOpen ? styles.open : ''}`}
+            aria-hidden='true'
           ></span>
           <span
             className={`${styles.bar} ${menuOpen ? styles.open : ''}`}
+            aria-hidden='true'
           ></span>
-        </div>
-        <ul className={`${styles.navLinks} ${menuOpen ? styles.open : ''}`}>
+        </button>
+        <ul
+          id='main-navigation'
+          className={`${styles.navLinks} ${menuOpen ? styles.open : ''}`}
+          role='menubar'
+        >
           {visibleSections.map((section) => {
             const displayTitle = sectionTitles[section.id] || section.name;
 

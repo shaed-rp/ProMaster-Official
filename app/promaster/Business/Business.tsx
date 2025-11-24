@@ -54,8 +54,8 @@ export default function Business({ businessPoints }: BusinessProps) {
   }, []);
 
   return (
-    <section className={styles.business}>
-      <h2 className={styles.title}>{businessPoints.title}</h2>
+    <section className={styles.business} aria-labelledby='business-section-title'>
+      <h2 id='business-section-title' className={styles.title}>{businessPoints.title}</h2>
       <div className={styles.content}>
         {businessPoints.businessPoints.map((point, index) => (
           <div key={index} className={styles.businessItem}>
@@ -68,6 +68,7 @@ export default function Business({ businessPoints }: BusinessProps) {
                 fill
                 style={{ objectFit: 'cover' }}
                 className={styles.image}
+                loading='lazy'
               />
             </div>
             <div

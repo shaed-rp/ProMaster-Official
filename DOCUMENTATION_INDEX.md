@@ -29,6 +29,14 @@ Quick reference guide to all project documentation.
 - Performance review
 - Recommendations and action items
 
+### [docs/MOBILE_RESPONSIVENESS.md](./docs/MOBILE_RESPONSIVENESS.md)
+**Mobile responsiveness documentation**
+- Responsive breakpoints
+- Touch-friendly interactions
+- Accessibility features
+- Performance optimizations
+- Best practices and testing checklist
+
 ## 📁 Archive
 
 Historical documentation files have been moved to [`docs/archive/`](./docs/archive/) for reference.
@@ -58,6 +66,12 @@ Historical documentation files have been moved to [`docs/archive/`](./docs/archi
 - [Security Review](./PROJECT_REVIEW_FEEDBACK.md#security-review)
 - [Recommendations](./PROJECT_REVIEW_FEEDBACK.md#priority-recommendations)
 
+### Mobile & Responsive Design
+- [Mobile Responsiveness Guide](./docs/MOBILE_RESPONSIVENESS.md)
+- [Breakpoints & Features](./docs/MOBILE_RESPONSIVENESS.md#responsive-breakpoints)
+- [Accessibility Features](./docs/MOBILE_RESPONSIVENESS.md#accessibility-features)
+- [Performance Optimizations](./docs/MOBILE_RESPONSIVENESS.md#performance-optimizations)
+
 ## 📝 Documentation Standards
 
 All documentation follows these standards:
@@ -77,5 +91,5 @@ When making changes to the project:
 
 ---
 
-**Last Updated:** November 2025
+**Last Updated:** December 2024
 

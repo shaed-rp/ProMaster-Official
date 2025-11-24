@@ -71,9 +71,9 @@ const Overview = ({ overview }: OverviewProps) => {
   }, [cardSizes.length]);
 
   return (
-    <section className={styles.overview}>
+    <section className={styles.overview} aria-labelledby='overview-section-title'>
       <div className={styles.overviewContainer}>
-        <h2 className={styles.title}>Overview</h2>
+        <h2 id='overview-section-title' className={styles.title}>Overview</h2>
         <div className={styles.pointsContainer}>
           {cardSizes.map((size, index) => (
             <div
@@ -106,11 +106,12 @@ const Overview = ({ overview }: OverviewProps) => {
                             alt={
                               overview.specs[index].title ||
                               overview.specs[index].description ||
-                              'Overview image'
+                              'RAM ProMaster EV feature'
                             }
                             fill
                             style={{ objectFit: 'cover' }}
                             className={styles.mainImage}
+                            loading={index > 2 ? 'lazy' : undefined}
                           />
                           <div className={styles.imageGradientRight}></div>
                         </div>
@@ -125,11 +126,12 @@ const Overview = ({ overview }: OverviewProps) => {
                             alt={
                               overview.specs[index].title ||
                               overview.specs[index].description ||
-                              'Overview image'
+                              'RAM ProMaster EV feature'
                             }
                             fill
                             style={{ objectFit: 'cover' }}
                             className={styles.mainImage}
+                            loading={index > 2 ? 'lazy' : undefined}
                           />
                           <div className={styles.imageGradientLeft}></div>
                         </div>
@@ -155,11 +157,12 @@ const Overview = ({ overview }: OverviewProps) => {
                           alt={
                             overview.specs[index].title ||
                             overview.specs[index].description ||
-                            'Overview image'
+                            'RAM ProMaster EV feature'
                           }
                           fill
                           style={{ objectFit: 'cover' }}
                           className={styles.mainImage}
+                          loading={index > 2 ? 'lazy' : undefined}
                         />
                         <div className={styles.imageGradient}></div>
                       </div>
@@ -185,12 +188,13 @@ const Overview = ({ overview }: OverviewProps) => {
                             alt={
                               overview.specs[index].title ||
                               overview.specs[index].description ||
-                              'Overview image'
+                              'RAM ProMaster EV feature'
                             }
                             width={size === 'large' ? 200 : 200}
                             height={size === 'large' ? 200 : 100}
                             style={{ objectFit: 'contain' }}
                             className={styles.mainImage}
+                            loading={index > 2 ? 'lazy' : undefined}
                           />
                         </div>
                       )}

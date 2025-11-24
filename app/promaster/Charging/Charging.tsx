@@ -44,8 +44,8 @@ export default function Charging({ chargingPoints }: ChargingProps) {
   }
 
   return (
-    <section className={styles.charging}>
-      <h2 className={styles.title}>{chargingPoints.title}</h2>
+    <section className={styles.charging} aria-labelledby='charging-section-title'>
+      <h2 id='charging-section-title' className={styles.title}>{chargingPoints.title}</h2>
       <div className={styles.content}>
         {chargingPoints.chargingOptions.map((option, index) => (
           <div
@@ -60,9 +60,10 @@ export default function Charging({ chargingPoints }: ChargingProps) {
             <div className={styles.imageContainer}>
               <Image
                 src={option.imageUrl}
-                alt={option.title}
+                alt={`RAM ProMaster EV ${option.title} - ${option.description.substring(0, 60)}`}
                 fill
                 style={{ objectFit: 'cover' }}
+                loading='lazy'
               />
             </div>
             <div className={styles.infoContainer}>
