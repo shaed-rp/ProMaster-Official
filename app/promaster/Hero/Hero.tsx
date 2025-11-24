@@ -74,6 +74,7 @@ const Hero = ({ heroPoints, siteConfig, openModal }: HeroProps) => {
           src={point.backgroundImageUrl}
           alt='2024 RAM ProMaster EV commercial electric van in warehouse setting - Commercial vehicle for business operations'
           fill
+          sizes="100vw"
           priority
           style={{
             objectFit: 'cover',

@@ -13,6 +13,9 @@ interface GalleryProps {
 
 const Gallery = ({ images, title = 'Vehicle Gallery' }: GalleryProps) => {
   const displayImages = images.slice(0, 7);
+  
+  // First 3 images are above-the-fold and should be prioritized
+  const PRIORITY_THRESHOLD = 3;
 
   return (
     <section className={styles.gallery} aria-labelledby='gallery-section-title' itemScope itemType='https://schema.org/ImageGallery'>
@@ -23,8 +26,10 @@ const Gallery = ({ images, title = 'Vehicle Gallery' }: GalleryProps) => {
             src={displayImages[0].url}
             alt={displayImages[0].alt}
             fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 25vw"
             style={{ objectFit: 'cover' }}
-            loading='lazy'
+            priority
+            fetchPriority="high"
           />
         </div>
         <div className={styles.middleSection}>
@@ -34,8 +39,10 @@ const Gallery = ({ images, title = 'Vehicle Gallery' }: GalleryProps) => {
                 src={displayImages[1].url}
                 alt={displayImages[1].alt}
                 fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 40vw, 20vw"
                 style={{ objectFit: 'cover' }}
-                loading='lazy'
+                priority
+                fetchPriority="high"
               />
             </div>
             <div className={`${styles.imageWrapper} ${styles.small}`}>
@@ -43,8 +50,10 @@ const Gallery = ({ images, title = 'Vehicle Gallery' }: GalleryProps) => {
                 src={displayImages[2].url}
                 alt={displayImages[2].alt}
                 fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 20vw, 10vw"
                 style={{ objectFit: 'cover' }}
-                loading='lazy'
+                priority
+                fetchPriority="high"
               />
             </div>
           </div>
@@ -53,6 +62,7 @@ const Gallery = ({ images, title = 'Vehicle Gallery' }: GalleryProps) => {
               src={displayImages[3].url}
               alt={displayImages[3].alt}
               fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 66vw, 40vw"
               style={{ objectFit: 'cover' }}
               loading='lazy'
             />
@@ -63,6 +73,7 @@ const Gallery = ({ images, title = 'Vehicle Gallery' }: GalleryProps) => {
                 src={displayImages[4].url}
                 alt={displayImages[4].alt}
                 fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 30vw, 15vw"
                 style={{ objectFit: 'cover' }}
                 loading='lazy'
               />
@@ -72,6 +83,7 @@ const Gallery = ({ images, title = 'Vehicle Gallery' }: GalleryProps) => {
                 src={displayImages[5].url}
                 alt={displayImages[5].alt}
                 fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 36vw, 18vw"
                 style={{ objectFit: 'cover' }}
                 loading='lazy'
               />
@@ -83,6 +95,7 @@ const Gallery = ({ images, title = 'Vehicle Gallery' }: GalleryProps) => {
             src={displayImages[6].url}
             alt={displayImages[6].alt}
             fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 25vw"
             style={{ objectFit: 'cover' }}
             loading='lazy'
           />

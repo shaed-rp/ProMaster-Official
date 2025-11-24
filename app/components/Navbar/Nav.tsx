@@ -226,6 +226,9 @@ const Navbar = ({ vehicleId, openModal, sectionTitles }: NavbarProps) => {
                 isPromaster ? styles.promasterLogo : ''
               }`}
               style={{ objectFit: 'contain' }}
+              priority
+              fetchPriority="high"
+              loading="eager"
             />
             {config.siteConfig.logoUrlTwo && (
               <Image

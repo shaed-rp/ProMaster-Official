@@ -45,16 +45,16 @@ export default function DesignImage({
     }
 
     return () => {
-      if (imageRef.current) {
-        observer.unobserve(imageRef.current);
-      }
       observer.disconnect();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [index]);
 
+  // Prioritize first design image (likely above-the-fold)
+  const shouldPriority = index === 0;
+
   return (
-    <div
+    <figure
       ref={imageRef}
       className={`${styles.imageContainer} ${sizeClass} ${
         isVisible ? styles.visible : ''
@@ -64,11 +64,13 @@ export default function DesignImage({
         src={image.imageUrl}
         alt={image.alt}
         fill
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         style={{ objectFit: 'cover' }}
         className={styles.image}
-        loading='lazy'
+        loading={shouldPriority ? undefined : 'lazy'}
+        {...(shouldPriority && { priority: true })}
       />
-    </div>
+    </figure>
   );
 }
 

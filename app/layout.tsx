@@ -142,17 +142,7 @@ export default function RootLayout({
         {/* Additional resource hints for better performance */}
         <link rel='dns-prefetch' href='https://fonts.googleapis.com' />
         <link rel='preconnect' href='https://fonts.googleapis.com' />
-        {/* Preload critical resources */}
-        <link
-          rel='preload'
-          href={promasterData.siteConfig.ogImage}
-          as='image'
-        />
-        <link
-          rel='preload'
-          href={promasterData.siteConfig.logoUrl}
-          as='image'
-        />
+        {/* Note: Logo image uses priority prop in Navbar component, which handles preloading automatically */}
         <Script id='google-tag-manager' strategy='afterInteractive'>
           {`
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

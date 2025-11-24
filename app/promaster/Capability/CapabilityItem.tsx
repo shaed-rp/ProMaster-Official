@@ -36,9 +36,6 @@ export default function CapabilityItem({ spec, index }: CapabilityItemProps) {
     }
 
     return () => {
-      if (itemRef.current) {
-        observer.unobserve(itemRef.current);
-      }
       observer.disconnect();
     };
   }, []);

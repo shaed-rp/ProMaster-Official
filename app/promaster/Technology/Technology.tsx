@@ -100,26 +100,37 @@ export default function Technology({ technologyPoints }: TechnologyProps) {
             keyBoardControl={true}
             transitionDuration={300}
           >
-            {technologyPoints.technology.map((point, index) => (
-              <div key={`technology-${point.title}-${index}`} className={styles.chargingOptions}>
-                <div className={styles.imageContainer}>
-                  <Image
-                    src={point.imageUrl}
-                    alt={`2024 RAM ProMaster EV ${point.title} - ${point.description.substring(0, 60).replace(/\.$/, '')} - Commercial Electric Van Technology`}
-                    fill
-                    style={{ objectFit: 'contain' }}
-                    className={styles.image}
-                    loading='lazy'
-                  />
-                </div>
-                <div className={styles.infoContainer}>
-                  <h3 className={styles.optionTitle}>{point.title}</h3>
-                  <p className={styles.optionDescription}>
-                    {point.description}
-                  </p>
-                </div>
-              </div>
-            ))}
+            {technologyPoints.technology.map((point, index) => {
+              // Prioritize first technology item image (likely above-the-fold)
+              const shouldPriority = index === 0;
+              
+              return (
+                <article 
+                  key={`technology-${point.title}-${index}`} 
+                  className={styles.chargingOptions}
+                  aria-labelledby={`technology-${index}-title`}
+                >
+                  <div className={styles.imageContainer}>
+                    <Image
+                      src={point.imageUrl}
+                      alt={`2024 RAM ProMaster EV ${point.title} - ${point.description.substring(0, 60).replace(/\.$/, '')} - Commercial Electric Van Technology`}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
+                      style={{ objectFit: 'contain' }}
+                      className={styles.image}
+                      loading={shouldPriority ? undefined : 'lazy'}
+                      {...(shouldPriority && { priority: true })}
+                    />
+                  </div>
+                  <div className={styles.infoContainer}>
+                    <h3 id={`technology-${index}-title`} className={styles.optionTitle}>{point.title}</h3>
+                    <p className={styles.optionDescription}>
+                      {point.description}
+                    </p>
+                  </div>
+                </article>
+              );
+            })}
           </Carousel>
         )}
       </div>

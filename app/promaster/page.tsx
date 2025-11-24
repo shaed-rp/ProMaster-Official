@@ -43,13 +43,13 @@ export const metadata: Metadata = {
     'commercial EV incentives 2024',
   ],
   alternates: {
-    canonical: `${baseUrl}/promaster`,
+    canonical: baseUrl,
   },
   openGraph: {
     title: 'RAM ProMaster EV | Specifications & Features | CommercialEVs.com',
     description:
       'Explore the 2024 RAM ProMaster EV specifications, features, and capabilities. 110 kWh battery, 162-mile range, 3,020 lb payload, 520 cubic feet cargo space. Zero emissions commercial electric van starting at $77,995.',
-    url: `${baseUrl}/promaster`,
+    url: baseUrl,
     siteName: 'CommercialEVs.com',
     images: [
       {

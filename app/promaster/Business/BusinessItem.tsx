@@ -52,8 +52,11 @@ export default function BusinessItem({ point, index }: BusinessItemProps) {
     };
   }, [index]);
 
+  // Prioritize first business item image (likely above-the-fold)
+  const shouldPriority = index === 0;
+
   return (
-    <div className={styles.businessItem}>
+    <article className={styles.businessItem} aria-labelledby={`business-item-${index}-title`}>
       <div
         ref={imageRef}
         className={`${styles.imageContainer} ${styles.animatedElement} ${styles.fadeInUp}`}
@@ -62,16 +65,18 @@ export default function BusinessItem({ point, index }: BusinessItemProps) {
           src={point.imageUrl}
           alt={point.alt}
           fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           style={{ objectFit: 'cover' }}
           className={styles.image}
-          loading='lazy'
+          loading={shouldPriority ? undefined : 'lazy'}
+          {...(shouldPriority && { priority: true })}
         />
       </div>
       <div
         ref={textRef}
         className={`${styles.textContent} ${styles.animatedElement} ${styles.fadeInUp}`}
       >
-        <h3 className={styles.pointTitle}>{point.title}</h3>
+        <h3 id={`business-item-${index}-title`} className={styles.pointTitle}>{point.title}</h3>
         <p className={styles.pointDescription}>{point.description}</p>
         <a
           href={point.buttonLinkUrl}
@@ -85,7 +90,7 @@ export default function BusinessItem({ point, index }: BusinessItemProps) {
           {point.buttonText} →
         </a>
       </div>
-    </div>
+    </article>
   );
 }
 

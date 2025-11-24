@@ -58,15 +58,35 @@ const CardImage = ({
 }: CardImageProps) => {
   if (!src) return null;
 
+  // Determine sizes prop based on card size and layout
+  const getSizes = () => {
+    if (size === 'medium') {
+      // Medium cards take up 2 columns in a 5-column grid (40% width)
+      return '(max-width: 480px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 40vw, 40vw';
+    }
+    if (size === 'vertical') {
+      // Vertical cards take up 1 column in a 5-column grid (20% width)
+      return '(max-width: 480px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 20vw, 20vw';
+    }
+    // Default for other sizes
+    return '(max-width: 480px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 20vw, 20vw';
+  };
+
+  // Prioritize first few images that are likely above-the-fold
+  const shouldPriority = index <= LAZY_LOAD_THRESHOLD;
+
   const imageProps = useFill
     ? {
         fill: true as const,
+        sizes: getSizes(),
         style: { objectFit } as const,
+        ...(shouldPriority && { priority: true, fetchPriority: 'high' as const }),
       }
     : {
         width: size === 'large' ? 200 : 200,
         height: size === 'large' ? 200 : 100,
         style: { objectFit } as const,
+        ...(shouldPriority && { priority: true, fetchPriority: 'high' as const }),
       };
 
   return (
@@ -78,9 +98,9 @@ const CardImage = ({
         className={styles.mainImage}
         loading={index > LAZY_LOAD_THRESHOLD ? 'lazy' : undefined}
       />
-      {gradientType === 'left' && <div className={styles.imageGradientLeft} />}
-      {gradientType === 'right' && <div className={styles.imageGradientRight} />}
-      {gradientType === 'bottom' && <div className={styles.imageGradient} />}
+      {gradientType === 'left' && <div className={styles.imageGradientLeft} aria-hidden="true" />}
+      {gradientType === 'right' && <div className={styles.imageGradientRight} aria-hidden="true" />}
+      {gradientType === 'bottom' && <div className={styles.imageGradient} aria-hidden="true" />}
     </div>
   );
 };
@@ -118,9 +138,6 @@ export default function OverviewCard({ spec, size, index }: OverviewCardProps) {
     }
 
     return () => {
-      if (cardRef.current) {
-        observer.unobserve(cardRef.current);
-      }
       observer.disconnect();
     };
   }, []);

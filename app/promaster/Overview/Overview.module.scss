@@ -105,6 +105,7 @@
   align-items: center;
   padding: 1rem;
   max-height: 400px;
+  min-height: 350px;
 
   .imageContainer {
     width: 100%;
@@ -113,6 +114,7 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    flex-shrink: 0;
   }
 
   .mainImage {
@@ -126,20 +128,26 @@
   .content {
     width: 100%;
     height: 30%;
+    min-height: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding: 0.5rem 1rem;
   }
 
   .pointTitle {
-    font-size: 1.8rem;
+    font-size: clamp(1.4rem, 2vw, 1.8rem);
     margin-bottom: 0.5rem;
+    line-height: 1.2;
+    -webkit-line-clamp: 2;
   }
 
   .pointDescription {
-    font-size: 1.1rem;
+    font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+    line-height: 1.3;
+    -webkit-line-clamp: 3;
   }
 }
 
@@ -157,17 +165,19 @@
     height: 100%;
     overflow: hidden;
     position: relative;
+    flex-shrink: 0;
   }
 
   .content {
     width: 50%;
     height: 100%;
-    padding: 1rem;
+    padding: 0.75rem 1rem;
     position: relative;
     z-index: 2;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    min-height: 0;
   }
 
   .mainImage {
@@ -175,6 +185,19 @@
     height: 100%;
     object-fit: cover;
     transform: scale(1.1);
+  }
+
+  .pointTitle {
+    font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+    line-height: 1.2;
+    margin-bottom: 0.4rem;
+    -webkit-line-clamp: 2;
+  }
+
+  .pointDescription {
+    font-size: clamp(0.85rem, 1.1vw, 1rem);
+    line-height: 1.3;
+    -webkit-line-clamp: 2;
   }
 
   .imageGradientLeft,
@@ -208,20 +231,38 @@
     height: 60%;
     overflow: hidden;
     position: relative;
+    flex-shrink: 0;
   }
 
   .content {
     width: 100%;
     height: 30%;
-    padding: 1rem;
+    min-height: 0;
+    padding: 0.75rem 1rem;
     position: relative;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .mainImage {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  .pointTitle {
+    font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+    line-height: 1.2;
+    margin-bottom: 0.4rem;
+    -webkit-line-clamp: 2;
+  }
+
+  .pointDescription {
+    font-size: clamp(0.85rem, 1.1vw, 1rem);
+    line-height: 1.3;
+    -webkit-line-clamp: 2;
   }
 
   .imageGradient {
@@ -240,6 +281,25 @@
   grid-area: span 1 / span 1 / span 1 / span 1;
   max-height: 200px;
   min-height: 200px;
+  padding: 0.75rem;
+
+  .content {
+    padding: 0.5rem;
+    min-height: 0;
+  }
+
+  .pointTitle {
+    font-size: clamp(1rem, 1.3vw, 1.3rem);
+    line-height: 1.2;
+    margin-bottom: 0.3rem;
+    -webkit-line-clamp: 2;
+  }
+
+  .pointDescription {
+    font-size: clamp(0.8rem, 1vw, 0.95rem);
+    line-height: 1.3;
+    -webkit-line-clamp: 2;
+  }
 }
 
 .large,
@@ -270,6 +330,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0.75rem;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 0; // Allows flex children to shrink below content size
 }
 
 .titleImageContainer {
@@ -293,6 +357,7 @@
   // Text overflow handling
   overflow-wrap: break-word;
   word-wrap: break-word;
+  word-break: break-word;
   hyphens: auto;
   // Prevent text overflow with ellipsis
   overflow: hidden;
@@ -301,12 +366,15 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   line-height: 1.3;
+  // Ensure text fits within container
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .pointDescription {
   font-size: clamp(1rem, 1.3vw, 1.5rem);
   color: #333;
-  line-height: 1.5;
+  line-height: 1.4;
   font-weight: 600;
   margin: 0;
   width: 100%;
@@ -314,6 +382,7 @@
   // Text overflow handling
   overflow-wrap: break-word;
   word-wrap: break-word;
+  word-break: break-word;
   hyphens: auto;
   // Prevent text overflow with ellipsis
   overflow: hidden;
@@ -321,6 +390,9 @@
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+  // Ensure text fits within container
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .large .imageContainer,
@@ -526,6 +598,7 @@
   .large {
     max-height: none;
     height: auto;
+    min-height: auto;
 
     .imageContainer {
       min-height: 180px;
@@ -538,19 +611,21 @@
       height: auto;
       padding: clamp(0.75rem, 2vw, 1rem);
       overflow: visible;
+      min-height: auto;
     }
 
     .pointTitle {
       font-size: clamp(1.3rem, 4vw, 1.5rem);
       margin-bottom: 0.5rem;
+      line-height: 1.2;
       -webkit-line-clamp: 2;
     }
 
     .pointDescription {
       font-size: clamp(0.9rem, 3vw, 1rem);
-      line-height: 1.5;
+      line-height: 1.4;
       max-height: none;
-      -webkit-line-clamp: 4;
+      -webkit-line-clamp: 3;
     }
   }
 
@@ -562,12 +637,15 @@
 
   .pointTitle {
     font-size: clamp(1.3rem, 4vw, 1.8rem);
+    line-height: 1.2;
     -webkit-line-clamp: 2;
+    margin-bottom: 0.4rem;
   }
 
   .pointDescription {
     font-size: clamp(0.9rem, 3vw, 1rem);
-    -webkit-line-clamp: 3;
+    line-height: 1.3;
+    -webkit-line-clamp: 2;
   }
 
   .medium {

@@ -44,27 +44,33 @@ export default function ChargingCard({ option, index }: ChargingCardProps) {
     };
   }, []);
 
+  // Prioritize first charging card image (likely above-the-fold)
+  const shouldPriority = index === 0;
+
   return (
-    <div
+    <article
       ref={cardRef}
       className={`${styles.chargingOptions} ${styles.fadeIn} ${
         index % 2 === 0 ? styles.fromLeft : styles.fromRight
       }`}
+      aria-labelledby={`charging-option-${index}-title`}
     >
       <div className={styles.imageContainer}>
         <Image
           src={option.imageUrl}
           alt={`RAM ProMaster EV ${option.title} - ${option.description.substring(0, 60)}`}
           fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           style={{ objectFit: 'cover' }}
-          loading='lazy'
+          loading={shouldPriority ? undefined : 'lazy'}
+          {...(shouldPriority && { priority: true })}
         />
       </div>
       <div className={styles.infoContainer}>
-        <h3 className={styles.optionTitle}>{option.title}</h3>
+        <h3 id={`charging-option-${index}-title`} className={styles.optionTitle}>{option.title}</h3>
         <p className={styles.optionDescription}>{option.description}</p>
       </div>
-    </div>
+    </article>
   );
 }
 
