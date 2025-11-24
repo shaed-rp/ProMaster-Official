@@ -23,7 +23,9 @@ const Navbar = ({ vehicleId, openModal, sectionTitles }: NavbarProps) => {
 
   const config = vehicleConfigs[vehicleId];
   if (!config) {
-    console.error(`No config found for vehicle: ${vehicleId}`);
+    if (process.env.NODE_ENV === 'development') {
+      console.error(`No config found for vehicle: ${vehicleId}`);
+    }
     return null;
   }
   
@@ -37,27 +39,38 @@ const Navbar = ({ vehicleId, openModal, sectionTitles }: NavbarProps) => {
   const isPromaster = true;
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 10);
 
-      const currentScrollPosition = window.scrollY + window.innerHeight / 2;
+          const navbarHeight =
+            document.querySelector(`.${styles.navbar}`)?.clientHeight || 80;
+          const currentScrollPosition = window.scrollY + navbarHeight + 100;
 
-      for (const section of ['home', ...visibleSections.map((s) => s.id)]) {
-        const element = sectionRefs.current[section];
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (
-            currentScrollPosition >= offsetTop &&
-            currentScrollPosition < offsetTop + offsetHeight
-          ) {
-            setSelectedSection(section);
-            break;
+          for (const section of ['home', ...visibleSections.map((s) => s.id)]) {
+            const element = sectionRefs.current[section];
+            if (element) {
+              const { offsetTop, offsetHeight } = element;
+              if (
+                currentScrollPosition >= offsetTop &&
+                currentScrollPosition < offsetTop + offsetHeight
+              ) {
+                setSelectedSection(section);
+                break;
+              }
+            }
           }
-        }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial call
     return () => window.removeEventListener('scroll', handleScroll);
   }, [visibleSections]);
 
@@ -105,8 +118,8 @@ const Navbar = ({ vehicleId, openModal, sectionTitles }: NavbarProps) => {
     const section = sectionRefs.current[sectionId];
     if (section) {
       const navbarHeight =
-        document.querySelector(`.${styles.navbar}`)?.clientHeight || 0;
-      const offsetPosition = section.offsetTop - navbarHeight;
+        document.querySelector(`.${styles.navbar}`)?.clientHeight || 80;
+      const offsetPosition = Math.max(0, section.offsetTop - navbarHeight - 10);
 
       window.scrollTo({
         top: offsetPosition,
@@ -132,6 +145,42 @@ const Navbar = ({ vehicleId, openModal, sectionTitles }: NavbarProps) => {
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : 'auto';
+    
+    // Close menu on outside click
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuOpen) {
+        const target = event.target as HTMLElement;
+        const nav = document.querySelector(`.${styles.navbar}`);
+        const menu = document.getElementById('main-navigation');
+        
+        if (
+          nav &&
+          menu &&
+          !nav.contains(target) &&
+          !menu.contains(target) &&
+          !target.closest(`.${styles.hamburger}`)
+        ) {
+          setMenuOpen(false);
+        }
+      }
+    };
+    
+    // Close menu on escape key
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && menuOpen) {
+        setMenuOpen(false);
+      }
+    };
+    
+    if (menuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('keydown', handleEscape);
+    }
+    
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleEscape);
+    };
   }, [menuOpen]);
 
   const handleModalOpen = (e: React.MouseEvent) => {
@@ -149,21 +198,29 @@ const Navbar = ({ vehicleId, openModal, sectionTitles }: NavbarProps) => {
   };
 
   return (
-    <nav
-      className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}
-      style={
-        { '--brand-color': config.siteConfig.brandColor } as React.CSSProperties
-      }
-      aria-label='Main navigation'
-      role='navigation'
-    >
-      <div className={styles.navContainer}>
+    <>
+      {menuOpen && (
+        <div
+          className={styles.menuBackdrop}
+          onClick={() => setMenuOpen(false)}
+          aria-hidden='true'
+        />
+      )}
+      <nav
+        className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}
+        style={
+          { '--brand-color': config.siteConfig.brandColor } as React.CSSProperties
+        }
+        aria-label='Main navigation'
+        role='navigation'
+      >
+        <div className={styles.navContainer}>
         <div className={styles.logo}>
           <a href='#home' onClick={(event) => handleLinkClick(event, 'home')} aria-label='Navigate to home section - RAM ProMaster EV'>
             <Image
               src={config.siteConfig.logoUrl}
               alt={`${config.siteConfig.brandName} - RAM ProMaster EV Commercial Electric Van`}
-              width={isPromaster ? 450 : 200}
+              width={isPromaster ? 400 : 200}
               height={isPromaster ? 60 : 50}
               className={`${styles.logoOne} ${
                 isPromaster ? styles.promasterLogo : ''
@@ -171,17 +228,14 @@ const Navbar = ({ vehicleId, openModal, sectionTitles }: NavbarProps) => {
               style={{ objectFit: 'contain' }}
             />
             {config.siteConfig.logoUrlTwo && (
-              <>
-                <span style={{ paddingLeft: '20px' }} />
-                <Image
-                  src={config.siteConfig.logoUrlTwo}
-                  alt={`Authorized RAM ProMaster EV Dealer - ${config.siteConfig.brandName}`}
-                  width={150}
-                  height={50}
-                  className={styles.logoTwo}
-                  style={{ objectFit: 'contain' }}
-                />
-              </>
+              <Image
+                src={config.siteConfig.logoUrlTwo}
+                alt={`Authorized RAM ProMaster EV Dealer - ${config.siteConfig.brandName}`}
+                width={150}
+                height={50}
+                className={styles.logoTwo}
+                style={{ objectFit: 'contain' }}
+              />
             )}
           </a>
         </div>
@@ -247,6 +301,7 @@ const Navbar = ({ vehicleId, openModal, sectionTitles }: NavbarProps) => {
                       }
                       aria-label={`Navigate to ${displayTitle} section`}
                       title={`View ${displayTitle} - RAM ProMaster EV`}
+                      aria-current={selectedSection === section.id ? 'page' : undefined}
                     >
                       {displayTitle}
                     </a>
@@ -259,6 +314,7 @@ const Navbar = ({ vehicleId, openModal, sectionTitles }: NavbarProps) => {
         </ul>
       </div>
     </nav>
+    </>
   );
 };
 

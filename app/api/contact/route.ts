@@ -59,7 +59,10 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ message: 'Email sent successfully' });
   } catch (error) {
-    console.error('Error in /api/contact route:', error);
+    // Log error for debugging in development
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Error in /api/contact route:', error);
+    }
     // Don't expose error details in production
     return NextResponse.json(
       { message: 'Error sending email. Please try again later.' },

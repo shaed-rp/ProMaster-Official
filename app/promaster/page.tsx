@@ -1,5 +1,6 @@
 import { getVehicleData } from '@/utils/vehicleService';
 import PromasterClient from './PromasterClient';
+import { calculateSectionTitles } from '@/utils/sectionTitles';
 import type { Metadata } from 'next';
 
 const baseUrl =
@@ -70,11 +71,31 @@ export const metadata: Metadata = {
 };
 
 export default async function PromasterPage() {
-  const data = await getVehicleData('promaster');
+  try {
+    const data = await getVehicleData('promaster');
 
-  if (!data) {
-    return <div>Error loading data</div>;
+    if (!data) {
+      return (
+        <div>
+          <h1>Error loading data</h1>
+          <p>Please try again later.</p>
+        </div>
+      );
+    }
+
+    // Calculate section titles on the server
+    const sectionTitles = calculateSectionTitles(data);
+
+    return <PromasterClient data={data} sectionTitles={sectionTitles} />;
+  } catch (error) {
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Error in PromasterPage:', error);
+    }
+    return (
+      <div>
+        <h1>Error loading page</h1>
+        <p>Please try again later.</p>
+      </div>
+    );
   }
-
-  return <PromasterClient data={data} />;
 }

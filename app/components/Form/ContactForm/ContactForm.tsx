@@ -29,6 +29,8 @@ const ContactForm = ({ onSubmit, siteTitle }: ContactFormProps) => {
   const [isValid, setIsValid] = useState(false);
   const [showCaptcha, setShowCaptcha] = useState(false);
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   useEffect(() => {
     const hasErrors = Object.values(errors).some((error) => error !== null);
@@ -85,6 +87,9 @@ const ContactForm = ({ onSubmit, siteTitle }: ContactFormProps) => {
     }
 
     if (isValid && captchaToken) {
+      setIsSubmitting(true);
+      setSubmitError(null);
+
       try {
         const response = await fetch('/api/contact', {
           method: 'POST',
@@ -99,10 +104,20 @@ const ContactForm = ({ onSubmit, siteTitle }: ContactFormProps) => {
         if (response.ok) {
           onSubmit(formData);
         } else {
-          console.error('Failed to send email:', responseData);
+          setSubmitError(
+            responseData.message ||
+              'Failed to send message. Please try again later.'
+          );
         }
       } catch (error) {
-        console.error('Error:', error);
+        setSubmitError(
+          'Network error. Please check your connection and try again.'
+        );
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Contact form error:', error);
+        }
+      } finally {
+        setIsSubmitting(false);
       }
     }
   };
@@ -190,12 +205,23 @@ const ContactForm = ({ onSubmit, siteTitle }: ContactFormProps) => {
           </div>
         )}
 
+        {submitError && (
+          <div className={styles.errorMessage} role='alert' aria-live='polite'>
+            {submitError}
+          </div>
+        )}
+
         <button
           type='submit'
           className={styles.submitButton}
-          disabled={!isValid || (showCaptcha && !captchaToken)}
+          disabled={
+            !isValid ||
+            (showCaptcha && !captchaToken) ||
+            isSubmitting
+          }
+          aria-busy={isSubmitting}
         >
-          SUBMIT
+          {isSubmitting ? 'SUBMITTING...' : 'SUBMIT'}
         </button>
       </form>
     </div>

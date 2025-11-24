@@ -39,6 +39,7 @@ export interface OverviewSpec {
 export interface Overview {
   title: string;
   navLinkText: string;
+  cardSizes?: string[];
   specs: OverviewSpec[];
 }
 

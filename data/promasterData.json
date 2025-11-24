@@ -32,6 +32,18 @@
   "overview": {
     "title": "Overview",
     "navLinkText": "Overview",
+    "cardSizes": [
+      "large",
+      "small",
+      "medium",
+      "large",
+      "vertical",
+      "small",
+      "small",
+      "small",
+      "medium",
+      "medium"
+    ],
     "specs": [
       {
         "imageUrl": "/assets/promaster/boxes.webp",

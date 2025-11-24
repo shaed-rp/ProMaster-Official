@@ -1,8 +1,5 @@
-'use client';
-
-import { useEffect, useRef } from 'react';
-import Image from 'next/image';
 import styles from './Business.module.scss';
+import BusinessItem from './BusinessItem';
 
 interface BusinessItem {
   imageUrl: string;
@@ -21,74 +18,19 @@ interface BusinessProps {
 }
 
 export default function Business({ businessPoints }: BusinessProps) {
-  const observerRef = useRef<IntersectionObserver | null>(null);
-
-  useEffect(() => {
-    observerRef.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add(styles.animate);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const animatedElements = document.querySelectorAll(
-      `.${styles.animatedElement}`
-    );
-    animatedElements.forEach((el, index) => {
-      if (el instanceof HTMLElement) {
-        // Type guard
-        el.style.transitionDelay = `${index * 0.1}s`;
-      }
-      observerRef.current?.observe(el);
-    });
-
-    return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect();
-      }
-    };
-  }, []);
-
   return (
-    <section className={styles.business} aria-labelledby='business-section-title' itemScope itemType='https://schema.org/Service'>
-      <h2 id='business-section-title' className={styles.title}>{businessPoints.title || 'RAM ProMaster EV Business Benefits'}</h2>
+    <section
+      className={styles.business}
+      aria-labelledby='business-section-title'
+      itemScope
+      itemType='https://schema.org/Service'
+    >
+      <h2 id='business-section-title' className={styles.title}>
+        {businessPoints.title || 'RAM ProMaster EV Business Benefits'}
+      </h2>
       <div className={styles.content}>
         {businessPoints.businessPoints.map((point, index) => (
-          <div key={index} className={styles.businessItem}>
-            <div
-              className={`${styles.imageContainer} ${styles.animatedElement} ${styles.fadeInUp}`}
-            >
-              <Image
-                src={point.imageUrl}
-                alt={point.alt}
-                fill
-                style={{ objectFit: 'cover' }}
-                className={styles.image}
-                loading='lazy'
-              />
-            </div>
-            <div
-              className={`${styles.textContent} ${styles.animatedElement} ${styles.fadeInUp}`}
-            >
-              <h3 className={styles.pointTitle}>{point.title}</h3>
-              <p className={styles.pointDescription}>{point.description}</p>
-              <a
-                href={point.buttonLinkUrl}
-                target='_blank'
-                rel='noopener noreferrer'
-                className={styles.button}
-                style={{ backgroundColor: 'var(--brand-color)' }}
-                aria-label={`${point.buttonText} - ${point.title} - RAM ProMaster EV`}
-                title={`${point.buttonText} - Learn more about ${point.title} for RAM ProMaster EV`}
-              >
-                {point.buttonText} →
-              </a>
-            </div>
-          </div>
+          <BusinessItem key={index} point={point} index={index} />
         ))}
       </div>
     </section>

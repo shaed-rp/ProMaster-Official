@@ -1,5 +1,6 @@
 import { getVehicleData } from '@/utils/vehicleService';
 import PromasterClient from './promaster/PromasterClient';
+import { calculateSectionTitles } from '@/utils/sectionTitles';
 
 export default async function HomePage() {
   try {
@@ -9,10 +10,20 @@ export default async function HomePage() {
       return <div>Error loading data</div>;
     }
 
-    return <PromasterClient data={data} />;
+    // Calculate section titles on the server
+    const sectionTitles = calculateSectionTitles(data);
+
+    return <PromasterClient data={data} sectionTitles={sectionTitles} />;
   } catch (error) {
-    console.error('Error in HomePage:', error);
-    return <div>Error loading page. Please try again later.</div>;
+    if (process.env.NODE_ENV === 'development') {
+      console.error('Error in HomePage:', error);
+    }
+    return (
+      <div>
+        <h1>Error loading page</h1>
+        <p>Please try again later.</p>
+      </div>
+    );
   }
 }
 
