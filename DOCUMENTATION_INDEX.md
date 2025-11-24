@@ -29,6 +29,8 @@ Quick reference guide to all project documentation.
 - Performance review
 - Recommendations and action items
 
+**Note:** Historical code review feedback has been archived in [`docs/archive/`](./docs/archive/)
+
 ### [docs/MOBILE_RESPONSIVENESS.md](./docs/MOBILE_RESPONSIVENESS.md)
 **Mobile responsiveness documentation**
 - Responsive breakpoints

@@ -36,7 +36,11 @@ Documentation has been consolidated to reduce redundancy and improve maintainabi
 - `DOCUMENTATION_UPDATE_JANUARY_2025.md` → Archived (update summary)
 - `FINAL_IMPROVEMENTS_SUMMARY.md` → Archived (covered in PROJECT_UPDATES_SUMMARY.md)
 
-**Total Files Archived:** 16 files
+### Historical Code Reviews & Fixes (Moved to `docs/archive/`)
+- `CODE_REVIEW_FEEDBACK.md` → Archived (code review issues have been addressed)
+- `HYDRATION_FIX.md` → Archived (fix implemented, historical reference)
+
+**Total Files Archived:** 18 files
 
 ---
 
