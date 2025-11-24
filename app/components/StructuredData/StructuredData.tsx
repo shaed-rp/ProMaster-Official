@@ -1,5 +1,5 @@
 import Script from 'next/script';
-import { VehicleData } from '@/types/vehicle';
+import { VehicleData, SpecItem } from '@/types/vehicle';
 
 interface StructuredDataProps {
   data: VehicleData;
@@ -7,19 +7,27 @@ interface StructuredDataProps {
 }
 
 export default function StructuredData({ data, baseUrl }: StructuredDataProps) {
+  // Helper function to check if item is SpecItem
+  const isSpecItem = (item: any): item is SpecItem => {
+    return typeof item === 'object' && item !== null && 'type' in item && 'value' in item;
+  };
+
   // Extract pricing information
   const pricingSection = data.specs?.specDetails?.find(
     (section) => section.title === 'Pricing'
   );
-  const basePrice = pricingSection?.data?.find(
-    (item: any) => item.type === 'Base Price'
-  )?.value;
-  const destinationFee = pricingSection?.data?.find(
-    (item: any) => item.type === 'Destination Fee'
-  )?.value;
-  const optionsPrice = pricingSection?.data?.find(
-    (item: any) => item.type === 'Selected Options Price'
-  )?.value;
+  const basePriceItem = pricingSection?.data?.find(
+    (item) => isSpecItem(item) && item.type === 'Base Price'
+  );
+  const basePrice = isSpecItem(basePriceItem) ? basePriceItem.value : undefined;
+  const destinationFeeItem = pricingSection?.data?.find(
+    (item) => isSpecItem(item) && item.type === 'Destination Fee'
+  );
+  const destinationFee = isSpecItem(destinationFeeItem) ? destinationFeeItem.value : undefined;
+  const optionsPriceItem = pricingSection?.data?.find(
+    (item) => isSpecItem(item) && item.type === 'Selected Options Price'
+  );
+  const optionsPrice = isSpecItem(optionsPriceItem) ? optionsPriceItem.value : undefined;
   const priceValue = basePrice
     ? parseFloat(basePrice.replace(/[^0-9.]/g, ''))
     : null;
@@ -34,15 +42,18 @@ export default function StructuredData({ data, baseUrl }: StructuredDataProps) {
   const powertrainSection = data.specs?.specDetails?.find(
     (section) => section.title === 'Powertrain'
   );
-  const driveType = powertrainSection?.data?.find(
-    (item: any) => item.type === 'Drive Type'
-  )?.value;
-  const transmission = powertrainSection?.data?.find(
-    (item: any) => item.type === 'Transmission'
-  )?.value;
-  const cylinderConfig = powertrainSection?.data?.find(
-    (item: any) => item.type === 'Cylinder configuration'
-  )?.value;
+  const driveTypeItem = powertrainSection?.data?.find(
+    (item) => isSpecItem(item) && item.type === 'Drive Type'
+  );
+  const driveType = isSpecItem(driveTypeItem) ? driveTypeItem.value : undefined;
+  const transmissionItem = powertrainSection?.data?.find(
+    (item) => isSpecItem(item) && item.type === 'Transmission'
+  );
+  const transmission = isSpecItem(transmissionItem) ? transmissionItem.value : undefined;
+  const cylinderConfigItem = powertrainSection?.data?.find(
+    (item) => isSpecItem(item) && item.type === 'Cylinder configuration'
+  );
+  const cylinderConfig = isSpecItem(cylinderConfigItem) ? cylinderConfigItem.value : undefined;
 
   // Extract exterior features
   const exteriorSection = data.specs?.specDetails?.find(

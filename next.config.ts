@@ -18,8 +18,6 @@ const nextConfig: NextConfig = {
   compress: true,
   // PoweredByHeader - remove for security
   poweredByHeader: false,
-  // Optimize production builds
-  swcMinify: true,
 };
 
 export default nextConfig;
